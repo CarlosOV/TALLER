@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+# Home page
+GET		/										controllers.Home.login()
+GET		/tutor/tutorConsulta					controllers.TutorController.consultas()
+GET		/tutor/tutorMenu						controllers.TutorController.menu()
+GET		/tutor/indexCuenta						controllers.TutorController.indexCuenta()
+GET		/tutor/editarDatos						controllers.TutorController.editarInfo()
+GET		/tutor/editarCuenta						controllers.TutorController.editarCuenta()
+
+GET		/administrator/adminMenu				controllers.AdminController.menu()
+GET		/administrador/indexCuenta				controllers.AdminController.indexCuenta()
+GET		/administrador/editarDatos				controllers.AdminController.editarInfo()
+GET		/administrador/editarCuenta				controllers.AdminController.editarCuenta()
+
+GET		/master/registrarTutor					controllers.MasterController.registrarTutor()
+GET		/master/registrarAdmin					controllers.MasterController.registrarAdmin()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
