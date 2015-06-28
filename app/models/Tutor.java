@@ -17,7 +17,7 @@ public class Tutor{
 	String user_tutor;
 
 	@ManyToOne(cascade=CascadeType.ALL)
-  	Administrator admin;
+  	Administrador admin;
 
   	@ManyToMany(cascade=CascadeType.ALL)
   	List<Course> courses;
@@ -51,11 +51,11 @@ public class Tutor{
 		this.user_tutor = user_tutor;
 	}
 
-	public Administrator getAdmin() {
+	public Administrador getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(Administrator admin) {
+	public void setAdmin(Administrador admin) {
 		this.admin = admin;
 	}
 

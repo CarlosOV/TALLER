@@ -10,7 +10,7 @@ import play.data.validation.*;
 
 @Entity
 @Table(name = "administrador")
-public class Administrator{
+public class Administrador{
 
 	@Id
 	Long id;
@@ -23,7 +23,7 @@ public class Administrator{
 	String phone;
 	String email;
 	
-	public Administrator(){
+	public Administrador(){
 		
 	}
 

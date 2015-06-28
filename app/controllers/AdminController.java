@@ -28,16 +28,16 @@ public class AdminController extends Controller {
     }
     
     //CREACION DE LO QUERIES DE LA CLASE ADMINISTRATOR
-    public static Model.Finder<Long, Administrator> find = new Model.Finder<Long, Administrator>(Long.class, Administrator.class);
+    public static Model.Finder<Long, Administrador> find = new Model.Finder<Long, Administrador>(Long.class, Administrador.class);
     
     //CREACION DE LOS METODOS DEL CONTROLLER
-    public static void loginAdministrator(String user_admin, String password){
-    	List<Administrator> adminArray = AdminController.find.all();
+    public static void loginAdministrador(String user_admin, String password){
+    	List<Administrador> adminArray = AdminController.find.all();
     	int index = 0;
     	boolean flag  = false;
     	
     	while(index < adminArray.size() && !flag){
-    		Administrator admin = adminArray.get(index);
+    		Administrador admin = adminArray.get(index);
     		if(admin.getUser_admin().equals(user_admin) && admin.getPassword().equals(password)){
     			flag = true;
     		}
