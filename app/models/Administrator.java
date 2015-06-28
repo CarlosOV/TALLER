@@ -9,30 +9,22 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "tutor")
-public class Tutor{
+@Table(name = "administrador")
+public class Administrator{
 
 	@Id
 	Long id;
-	String user_tutor;
-
-	@ManyToOne(cascade=CascadeType.ALL)
-  	Administrator admin;
-
-  	@ManyToMany(cascade=CascadeType.ALL)
-  	List<Course> courses;
-
-  	@OneToMany(mappedBy = "tutor" ,cascade=CascadeType.ALL)
-	List<Report> reports;
-
+	String user_admin;
+	@OneToMany(mappedBy = "admin" ,cascade=CascadeType.ALL)
+	List<Tutor> tutors;
 	String password;
 	String name;
 	String last_name;
 	String phone;
 	String email;
-
-	public Tutor(){
-
+	
+	public Administrator(){
+		
 	}
 
 	public Long getId() {
@@ -43,36 +35,20 @@ public class Tutor{
 		this.id = id;
 	}
 
-	public String getUser_tutor() {
-		return user_tutor;
+	public String getUser_admin() {
+		return user_admin;
 	}
 
-	public void setUser_tutor(String user_tutor) {
-		this.user_tutor = user_tutor;
+	public void setUser_admin(String user_admin) {
+		this.user_admin = user_admin;
 	}
 
-	public Administrator getAdmin() {
-		return admin;
+	public List<Tutor> getTutors() {
+		return tutors;
 	}
 
-	public void setAdmin(Administrator admin) {
-		this.admin = admin;
-	}
-
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
-
-	public List<Report> getReports() {
-		return reports;
-	}
-
-	public void setReports(List<Report> reports) {
-		this.reports = reports;
+	public void setTutors(List<Tutor> tutors) {
+		this.tutors = tutors;
 	}
 
 	public String getPassword() {
@@ -114,5 +90,4 @@ public class Tutor{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 }
