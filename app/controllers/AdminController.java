@@ -33,15 +33,19 @@ public class AdminController extends Controller {
     //CREACION DE LOS METODOS DEL CONTROLLER
     public static void loginAdministrador(String user_admin, String password){
     	List<Administrador> adminArray = AdminController.find.all();
+        Administrador admin = null;
     	int index = 0;
     	boolean flag  = false;
     	
     	while(index < adminArray.size() && !flag){
-    		Administrador admin = adminArray.get(index);
+    		admin = adminArray.get(index);
     		if(admin.getUser_admin().equals(user_admin) && admin.getPassword().equals(password)){
     			flag = true;
     		}
     		index++;
     	}
+        if(flag){
+            session("user", admin.getName() + " " + admin.getLast_name());
+        }
     }
 }

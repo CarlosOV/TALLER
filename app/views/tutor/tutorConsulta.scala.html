@@ -1,113 +1,115 @@
-@temp_general("Consulta de Entregas"){
-    <header>
-        <nav class="navbar style-icip" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle color-white" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only color-white">Desplegar navegación</span>
-                    <span class="icon-bar color-white"></span>
-                    <span class="icon-bar color-white"></span>
-                    <span class="icon-bar color-white"></span>
-                </button>
-                <a class="navbar-brand" href="@routes.TutorController.menu">ICIP</a>
+@temp_Void("Consulta de Entregas"){
+
+<header>
+    <nav class="navbar style-icip" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle color-white" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only color-white">Desplegar navegación</span>
+                <span class="icon-bar color-white"></span>
+                <span class="icon-bar color-white"></span>
+                <span class="icon-bar color-white"></span>
+            </button>
+            <a class="navbar-brand" href="#">ICIP</a>
+        </div>
+ 
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="@routes.TutorController.menu" class="color-white bold"><i class="fa fa-home color-white"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#" class="color-white bold"><i class="fa fa-files-o color-white"></i> Entregables</a>
+                </li>
+                <li>
+                    <a href="@routes.TutorController.consultas" class="color-white bold"><i class="fa fa-calendar-o color-white"></i> Consultas</a>
+                </li>
+                <li>
+                    <a href="#" class="color-white bold"><i class="fa fa-bar-chart color-white"></i> Estadísticas</a>
+                </li>
+                <li>
+                    <a href="@routes.TutorController.indexCuenta" class="color-white bold"><i class="fa fa-user color-white"></i> Usuario</a>
+                </li>
+            </ul> 
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="@routes.TutorController.indexCuenta" class="color-white bold"><i class="fa fa-cog"></i> Tutor</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle color-white bold" data-toggle="dropdown"><i class="fa fa-eye"></i> Ver registros <b class="caret"></b></a>
+                    <ul class="dropdown-menu style-icip">
+                        <li>
+                            <a href="@routes.TutorController.consultas" class="color-white bold">Vencidos <span class="label label-danger pull-right">42</span></a>
+                        </li>
+                        <li>
+                            <a href="@routes.TutorController.consultas" class="color-white bold">Pendientes <span class="label label-warning pull-right">42</span></a>
+                        </li>
+                        <li>
+                            <a href="@routes.TutorController.consultas" class="color-white bold">Entregados <span class="label label-success pull-right">42</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="color-white bold"><i class="fa fa-sign-out"></i> Salir</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="container container-top">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading style-icip">
+                <h4 class="title-panel">Tabla de Registro de Entregas</h4>
             </div>
-     
-      <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-           otro elemento que se pueda ocultar al minimizar la barra -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="@routes.TutorController.menu" class="color-white bold"><i class="fa fa-home color-white"></i> Home</a>
-                    </li>
-                    <li>
-                        <a href="#" class="color-white bold"><i class="fa fa-files-o color-white"></i> Entregables</a>
-                    </li>
-                    <li>
-                        <a href="@routes.TutorController.consultas" class="color-white bold"><i class="fa fa-calendar-o color-white"></i> Consultas</a>
-                    </li>
-                    <li>
-                        <a href="#" class="color-white bold"><i class="fa fa-bar-chart color-white"></i> Estadísticas</a>
-                    </li>
-                    <li>
-                        <a href="@routes.TutorController.indexCuenta" class="color-white bold"><i class="fa fa-user color-white"></i> Usuario</a>
-                    </li>
-                </ul> 
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="@routes.TutorController.indexCuenta" class="color-white bold"><i class="fa fa-cog"></i> Tutor</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle color-white bold" data-toggle="dropdown"><i class="fa fa-eye"></i> Ver registros <b class="caret"></b></a>
-                        <ul class="dropdown-menu style-icip">
-                            <li>
-                                <a href="@routes.TutorController.consultas" class="color-white bold">Vencidos <span class="label label-danger pull-right">42</span></a>
-                            </li>
-                            <li>
-                                <a href="@routes.TutorController.consultas" class="color-white bold">Pendientes <span class="label label-warning pull-right">42</span></a>
-                            </li>
-                            <li>
-                                <a href="@routes.TutorController.consultas" class="color-white bold">Entregados <span class="label label-success pull-right">42</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="color-white bold"><i class="fa fa-sign-out"></i> Salir</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header> 
-	<div class="container container-top">
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading style-icip">
-                    <h4 class="title-panel">Tabla de Registro de Entregas</h4>
-                </div>
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table id="table-view" class="table table-striped">
-                            <thead>
-                                <tr class="text-center">
-                                    <th class="text-center">Curso</th>
-                                    <th class="text-center">Tema</th>
-                                    <th class="text-center">Fecha Entrega</th>
-                                    <th class="text-center">Estado</th>
-                                    <th class="text-center">Información</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="text-center">
-                                    <td>Java</td>
-                                    <td>Polimorfismo</td>
-                                    <td>10/12/2015</td>
-                                    <td>Entregado</td>
-                                    <td><button class="btn style-icip">Visualizar</button></td>
-                                </tr>
-                                <tr class="text-center">
-                                    <td>Visual Basic .NET</td>
-                                    <td>Componentes de Windows</td>
-                                    <td>12/09/2015</td>
-                                    <td>Pendiente</td>
-                                    <td><button class="btn style-icip">Visualizar</button></td>
-                                </tr>
-                                <tr class="text-center">
-                                    <td>Visual Basic .NET</td>
-                                    <td>Componentes de Windows</td>
-                                    <td>12/09/2015</td>
-                                    <td>Pendiente</td>
-                                    <td><button class="btn style-icip">Visualizar</button></td>
-                                </tr>
-                                <tr class="text-center">
-                                    <td>Inteligencia Artificial</td>
-                                    <td>Búsqueda en Profundidad (BFS)</td>
-                                    <td>12/09/2015</td>
-                                    <td>Terminado</td>
-                                    <td><button id="btnDialog" class="btn style-icip">Visualizar</button></td>
-                                </tr>                                
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="table-view" class="table table-striped">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="text-center">Curso</th>
+                                <th class="text-center">Tema</th>
+                                <th class="text-center">Fecha Entrega</th>
+                                <th class="text-center">Estado</th>
+                                <th class="text-center">Información</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td>Java</td>
+                                <td>Polimorfismo</td>
+                                <td>10/12/2015</td>
+                                <td>Entregado</td>
+                                <td><button class="btn style-icip">Visualizar</button></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>Visual Basic .NET</td>
+                                <td>Componentes de Windows</td>
+                                <td>12/09/2015</td>
+                                <td>Pendiente</td>
+                                <td><button class="btn style-icip">Visualizar</button></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>Visual Basic .NET</td>
+                                <td>Componentes de Windows</td>
+                                <td>12/09/2015</td>
+                                <td>Pendiente</td>
+                                <td><button class="btn style-icip">Visualizar</button></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>Inteligencia Artificial</td>
+                                <td>Búsqueda en Profundidad (BFS)</td>
+                                <td>12/09/2015</td>
+                                <td>Terminado</td>
+                                <td><button id="btnDialog" class="btn style-icip">Visualizar</button></td>
+                            </tr>                                
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 }
