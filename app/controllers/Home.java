@@ -10,4 +10,7 @@ public class Home extends Controller {
     public Result login(){
     	return ok(login.render());
     }
+
+    public void verificarUser(){
+    }
 }

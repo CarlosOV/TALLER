@@ -35,7 +35,7 @@ public class TutorController extends Controller {
     public static Model.Finder<Long, Tutor> find = new Model.Finder<Long, Tutor>(Long.class, Tutor.class);
     
     //CREACION DE LOS METODOS DEL CONTROLLER
-    public static void loginTutor(String user_tutor, String password){
+    public static Result loginTutor(String user_tutor, String password){
         List<Tutor> tutorArray = TutorController.find.all();
         Tutor tutor = null;
         int index = 0;
@@ -50,6 +50,10 @@ public class TutorController extends Controller {
         }
         if(flag){
             session("user", tutor.getName() + " " + tutor.getLast_name());
+            return redirect(routes.TutorController.menu());
+        }else{
+            return redirect(routes.Home.login());
         }
+
     }
 }
