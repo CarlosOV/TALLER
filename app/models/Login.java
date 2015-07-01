@@ -27,11 +27,11 @@ public class Login{
 		return password;
 	}
 
-	public Integer setTipo(Integer tipo){
+	public void setTipo(Integer tipo){
 		this.tipo = tipo;
 	}
 
-	public void getTipo(){
+	public Integer getTipo(){
 		return tipo;
 	}
 }

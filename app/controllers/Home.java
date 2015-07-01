@@ -2,15 +2,19 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
-
 import views.html.*;
+import play.data.*;
 
+import models.Login;
 public class Home extends Controller {
 
     public Result login(){
-    	return ok(login.render());
+    	Form<Login> formulario = new Form(Login.class);
+    	return ok(login.render(formulario));
     }
 
-    public void verificarUser(){
+    public Result verificarUser(){
+    	Form<Login> formulario = new Form(Login.class).bindFromRequest();
+    	return ok(login.render(formulario));
     }
 }
