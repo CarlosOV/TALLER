@@ -31,7 +31,7 @@ public class AdminController extends Controller {
     public static Model.Finder<Long, Administrador> find = new Model.Finder<Long, Administrador>(Long.class, Administrador.class);
     
     //CREACION DE LOS METODOS DEL CONTROLLER
-    public static Result loginAdministrador(String user_admin, String password){
+    public static boolean loginAdministrador(String user_admin, String password){
     	List<Administrador> adminArray = AdminController.find.all();
         Administrador admin = null;
     	int index = 0;
@@ -46,9 +46,9 @@ public class AdminController extends Controller {
     	}
         if(flag){
             session("user", admin.getName() + " " + admin.getLast_name());
-            return redirect(routes.AdminController.menu());
+            return true;
         }else{
-            return redirect(routes.Home.login());
+            return false;
         }
     }
 }

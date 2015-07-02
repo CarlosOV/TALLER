@@ -1,6 +1,8 @@
 package models;
 
+
 public class Login{
+
 	private String user_name;
 	private String password;
 	private Integer tipo;

@@ -20,7 +20,7 @@ GET		/master/registrarTutor					controllers.MasterController.registrarTutor()
 GET		/master/registrarAdmin					controllers.MasterController.registrarAdmin()
 
 #Login
-GET		/template/new							controllers.Home.verificarUser()
+GET		/new									controllers.Home.verificarUser()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
