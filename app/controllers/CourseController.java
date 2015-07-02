@@ -23,24 +23,5 @@ public class CourseController extends Controller {
     }
 //CREACION DE LO QUERIES DE LA CLASE CURSO
 public static Model.Finder<Long, Curso> find = new Model.Finder<Long, Curso>(Long.class, Curso.class);
-//CREACION DE LOS METODOS DEL CONTROLLER
-public static Result loginTutor(String user_tutor, String password){
-    List<Tutor> tutorArray = TutorController.find.all();
-    Tutor tutor = null;
-    int index = 0;
-    boolean flag = false;
-    while(index < tutorArray.size() && !flag){
-      tutor = tutorArray.get(index);
-      if(tutor.getUser_tutor().equals(user_tutor) && tutor.getPassword().equals(password)){
-        flag = true;
-      }
-      index++;
-      }
-      if(flag){
-        session("user", tutor.getName() + " " + tutor.getLast_name());
-        return redirect(routes.TutorController.menu());
-      }else{
-        return redirect(routes.Home.login());
-      }
-    }
+
 }
