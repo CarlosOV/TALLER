@@ -120,12 +120,13 @@ body {
   -ms-transition: all 0.3s linear 0s;
   -o-transition: all 0.3s linear 0s;
   transition: all 0.3s linear 0s;
+  margin-top: -15px !important;
 }
 .form input:focus, .form select:focus{
   color: #333333;
   border: 1px solid #33b5e5;
 }
-.form button {
+#button {
   cursor: pointer;
   background: #33b5e5;
   width: 100%;
@@ -147,7 +148,7 @@ body {
   -o-transition: all 0.3s linear 0s;
   transition: all 0.3s linear 0s;
 }
-.form button:hover {
+#button:hover {
   background: #1a9bcb;
 }
 .form footer {
