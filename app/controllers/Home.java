@@ -9,9 +9,15 @@ import models.*;
 
 public class Home extends Controller {
 
+	private boolean negado;
+
+	public Home(){
+		negado = true;
+	}
+
     public Result login(){
     	Form<Login> formulario = new Form(Login.class);
-    	return ok(login.render(formulario));
+    	return ok(login.render(formulario, negado));
     }
 
     public Result verificarUser(){
@@ -30,6 +36,15 @@ public class Home extends Controller {
     			return redirect(routes.AdminController.menu());
     		}
     	}
+    	negado = false;
     	return redirect(routes.Home.login());
+    }
+
+    public void setNegado(boolean negado){
+    	this.negado = negado;
+    }
+
+    public boolean getNegado(){
+    	return this.negado;
     }
 }

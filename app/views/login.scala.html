@@ -1,12 +1,16 @@
 @import template._
 @import helper._
 
-@(formulario: Form[Login])
+@(formulario: Form[Login], negado: Boolean)
 @temp_Login("Ventana de Logueo"){
     @form(routes.Home.verificarUser()){
         @inputText(formulario("user_name"), '_showConstraints -> false, 'placeholder -> "Usuario", '_label -> null)
         @inputPassword(formulario("password"), '_showConstraints -> false, 'placeholder -> "Password", '_label -> null)
         @select(formulario("tipo"), options("1" -> "Tutor", "2" -> "Administrador"), '_label -> null)
+        @if(negado == false){
+        	<span style="color:red; font-size: 10px;">*Datos de usuario ingresados de manera incorrecta*</span>
+        	<br></br>
+        }
         <br></br>
         <input id="button" type="submit" value="Ingresar">
     }
