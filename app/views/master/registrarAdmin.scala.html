@@ -1,6 +1,25 @@
+@(formulario: Form[Administrador])
 @import template._
+@import helper._
+
 @temp_Master("Registro de Nuevo Administrador"){
-	<article id="myContainer" class="col-xs-12 col-md-9">
+
+@form(routes.MasterController.saveFormAdmin()){
+    
+@inputText(formulario("user_admin"), '_showConstraints -> false, 'placeholder -> "Usuario", '_label -> null)
+
+@inputPassword(formulario("password"), '_showConstraints -> false, 'placeholder -> "Password", '_label -> null)
+
+@inputText(formulario("name"), '_showConstraints -> false, 'placeholder -> "Nombres", '_label -> null)
+
+@inputText(formulario("last_name"), '_showConstraints -> false, 'placeholder -> "Apellidos", '_label -> null)
+
+@inputText(formulario("phone"), '_showConstraints -> false, 'placeholder -> "Teléfono", '_label -> null)
+
+@inputText(formulario("email"), '_showConstraints -> false, 'placeholder -> "Email", '_label -> null)
+<input type="submit" value="Crear">
+}
+	@*<article id="myContainer" class="col-xs-12 col-md-9">
         <form>
             <div class="row">
                 <div class="col-xs-12 col-md-5 col-md-offset-1">
@@ -56,5 +75,5 @@
                 </div>
             </div>
         </form>
-    </article>  
+    </article>  *@
 }

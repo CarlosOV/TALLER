@@ -2,18 +2,21 @@ package models;
 
 import java.util.*;
 import javax.persistence.*;
+import play.db.ebean.Model;
 
-import com.avaje.ebean.Model;
+
 import play.data.format.*;
 import play.data.validation.*;
+
+import com.avaje.ebean.*;
 
 
 @Entity
 @Table(name = "administrador")
-public class Administrador{
+public class Administrador extends Model{
 
 	@Id
-	Long id;
+	protected Long id;
 	String user_admin;
 	@OneToMany(mappedBy = "admin" ,cascade=CascadeType.ALL)
 	List<Tutor> tutors;
