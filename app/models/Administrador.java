@@ -62,8 +62,12 @@ public class Administrador extends Model{
 		this.password = password;
 	}
 
-	public String getName() {
+	public String getName() { 
 		return name;
+	}
+
+	public String getFullName(){
+		return this.getName() + " " + this.getLast_name();
 	}
 
 	public void setName(String name) {

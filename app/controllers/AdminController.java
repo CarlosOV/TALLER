@@ -16,7 +16,16 @@ public class AdminController extends Controller {
     }
 
     public Result editarInfo(){
-    	return ok(editarDatos.render());
+        long id = Integer.parseInt(session("user_id"));
+        Administrador admin = AdminController.find.byId(id);
+        Form<Administrador> formulario = Form.form(Administrador.class);
+    	return ok(editarDatos.render(admin));
+    }
+
+    public Result updateInfo(){
+        Form<Administrador> formulario = Form.form(Administrador.class).bindFromRequest();
+        formulario.get().save();
+        return redirect("/master/registrarAdmin");
     }
 
     public Result editarCuenta(){
@@ -45,7 +54,7 @@ public class AdminController extends Controller {
     		index++;
     	}
         if(flag){
-            session("user", admin.getName() + " " + admin.getLast_name());
+            session("user_id", ""+admin.getId());
             return true;
         }else{
             return false;
