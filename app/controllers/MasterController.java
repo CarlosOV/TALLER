@@ -11,13 +11,8 @@ import models.*;
 
 public class MasterController extends Controller {
 
-    public Result registrarTutor(){
-    	return ok(registrarTutor.render());
-    }
-
-
     public Result createFormAdmin(){
-    Form<Administrador> formulario = Form.form(Administrador.class);
+        Form<Administrador> formulario = Form.form(Administrador.class);
     	return ok(registrarAdmin.render(formulario));
     }
 
@@ -25,5 +20,16 @@ public class MasterController extends Controller {
     	Form<Administrador> formulario = Form.form(Administrador.class).bindFromRequest();
     	formulario.get().save();
     	return redirect("/master/registrarAdmin");
+    }
+
+    public Result createFormTutor(){
+        Form<Tutor> formulario = Form.form(Tutor.class);
+        return ok(registrarTutor.render(formulario));
+    }
+
+    public Result saveFormTutor(){
+        Form<Tutor> formulario = Form.form(Tutor.class).bindFromRequest();
+        formulario.get().save();
+        return redirect("/master/registrarTutor");
     }
 }

@@ -16,11 +16,13 @@ GET		/administrador/indexCuenta				controllers.AdminController.indexCuenta()
 GET		/administrador/editarDatos				controllers.AdminController.editarInfo()
 GET		/administrador/editarCuenta				controllers.AdminController.editarCuenta()
 
-GET		/master/registrarTutor					controllers.MasterController.registrarTutor()
-
 #Registrar admin
 GET		/master/registrarAdmin					controllers.MasterController.createFormAdmin()
-POST		/master/registrarAdmin					controllers.MasterController.saveFormAdmin()
+POST	/master/registrarAdmin					controllers.MasterController.saveFormAdmin()
+
+#Registrar tutor
+GET		/master/registrarTutor					controllers.MasterController.createFormTutor()
+POST	/master/registrarTutor					controllers.MasterController.saveFormTutor()
 
 
 #Login
