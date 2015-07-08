@@ -1,6 +1,6 @@
 package controllers;
 
-import java.util.List;
+import java.util.*;
 
 import com.avaje.ebean.Model;
 
@@ -50,5 +50,16 @@ public class AdminController extends Controller {
         }else{
             return false;
         }
+    }
+
+    //LISTADO DE TODOS LOS ADMINISTRADORES
+    public static Map<String, String> showAdministradores(){
+        LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+
+        for(Administrador admin : AdminController.find.orderBy("last_name").findList()){
+            map.put(admin.getId() + "", admin.last_name + " " + admin.name);
+        }
+
+        return map;
     }
 }

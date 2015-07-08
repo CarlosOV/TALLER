@@ -21,8 +21,8 @@ public class Administrador extends Model{
 	@OneToMany(mappedBy = "admin" ,cascade=CascadeType.ALL)
 	List<Tutor> tutors;
 	String password;
-	String name;
-	String last_name;
+	public String name;
+	public String last_name;
 	String phone;
 	String email;
 	
