@@ -4,23 +4,12 @@
 
 @temp_Master("Registro de Nuevo Administrador"){
 
-@form(routes.MasterController.saveFormAdmin()){
-    
-@inputText(formulario("user_admin"), '_showConstraints -> false, 'placeholder -> "Usuario", '_label -> null)
 
-@inputPassword(formulario("password"), '_showConstraints -> false, 'placeholder -> "Password", '_label -> null)
 
-@inputText(formulario("name"), '_showConstraints -> false, 'placeholder -> "Nombres", '_label -> null)
+@*<input type="submit" value="Crear">*@
 
-@inputText(formulario("last_name"), '_showConstraints -> false, 'placeholder -> "Apellidos", '_label -> null)
-
-@inputText(formulario("phone"), '_showConstraints -> false, 'placeholder -> "Teléfono", '_label -> null)
-
-@inputText(formulario("email"), '_showConstraints -> false, 'placeholder -> "Email", '_label -> null)
-<input type="submit" value="Crear">
-}
-	@*<article id="myContainer" class="col-xs-12 col-md-9">
-        <form>
+	<article id="myContainer" class="col-xs-12 col-md-9">
+        @form(routes.MasterController.saveFormAdmin()){
             <div class="row">
                 <div class="col-xs-12 col-md-5 col-md-offset-1">
                     <div class="panel panel-default">
@@ -32,18 +21,32 @@
                                 <div class="form-group col-xs-12">
                                     <label>Nombres:</label>
                                     <input type="text" class="form-control" placeholder="Ingrese nombres" required>
+
+
+@inputText(formulario("name"), '_showConstraints -> false, 'placeholder -> "Nombres", '_label -> null)
+
+
                                 </div>
                                 <div class="form-group col-xs-12">
                                     <label>Apellidos:</label>
                                     <input type="text" class="form-control" placeholder="Ingrese apellidos" required>
+
+@inputText(formulario("last_name"), '_showConstraints -> false, 'placeholder -> "Apellidos", '_label -> null)
+
                                 </div>
                                 <div class="form-group col-xs-12">
                                     <label>E-mail:</label>
                                     <input type="email" class="form-control" placeholder="Ingrese correo" required>
+
+@inputText(formulario("email"), '_showConstraints -> false, 'placeholder -> "Email", '_label -> null)
+
                                 </div>
                                 <div class="form-group col-xs-12">
                                     <label>Teléfono:</label>
                                     <input type="text" class="form-control" placeholder="Ingrese teléfono" required>
+
+@inputText(formulario("phone"), '_showConstraints -> false, 'placeholder -> "Teléfono", '_label -> null)
+
                                 </div>
                                 <div class="form-group col-xs-12">
                                     <label>Domicilio:</label>
@@ -62,10 +65,16 @@
                             <div class="form-group col-xs-12">
                                 <label>User Name:</label>
                                 <input type="text" class="form-control" placeholder="Ingrese DNI" required>
+
+@inputText(formulario("user_admin"), '_showConstraints -> false, 'placeholder -> "Usuario", '_label -> null)
+
                             </div>
                             <div class="form-group col-xs-12">
                                 <label>Password:</label>
                                 <input type="text" class="form-control" readonly="true" required>
+
+@inputPassword(formulario("password"), '_showConstraints -> false, 'placeholder -> "Password", '_label -> null)
+
                             </div>
                         </div>
                     </div>
@@ -74,6 +83,6 @@
                     </div>
                 </div>
             </div>
-        </form>
-    </article>  *@
+        }
+    </article> 
 }
