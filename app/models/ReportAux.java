@@ -10,7 +10,7 @@ import play.data.validation.*;
 
 @Entity
 @Table(name = "report_aux")
-public class ReportAux{
+public class ReportAux extends Model{
 
 	@Id
 	Long id;

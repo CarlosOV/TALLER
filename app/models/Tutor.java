@@ -10,7 +10,7 @@ import play.data.validation.*;
 
 @Entity
 @Table(name = "tutor")
-public class Tutor{
+public class Tutor extends Model{
 
 	@Id
 	Long id;
