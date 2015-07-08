@@ -6,8 +6,8 @@
                 <a class="navbar-brand" href="#">ICIP</a>
                 <div>
                     <p class="navbar-text pull-right color-white">
-                        <i class="fa fa-user color-white"></i><a href="#" class="navbar-link color-white a-none">&nbsp;&nbsp;&nbsp;&nbsp;Administrador&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                        <i class="fa fa-sign-out"></i><a href="#" class="navbar-link color-white a-none">&nbsp;&nbsp;&nbsp;&nbsp;Salir</a>
+                        <i class="fa fa-user color-white"></i><a href="#" class="navbar-link color-white a-none">&nbsp;&nbsp;&nbsp;&nbsp;@session.get("user")&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <i class="fa fa-sign-out"></i><a href="/logout" class="navbar-link color-white a-none">&nbsp;&nbsp;&nbsp;&nbsp;Salir</a>
                     </p>
                 </div>
             </div>

@@ -20,6 +20,14 @@ public class Home extends Controller {
     	return ok(login.render(formulario, negado));
     }
 
+    public Result logout() {
+    session().clear();
+    flash("success", "Hasta la próxima ;)");
+    return redirect(
+        routes.Home.login()
+    );
+}
+
     public Result verificarUser(){
     	Form<Login> formulario = new Form(Login.class).bindFromRequest();
     	boolean login;
