@@ -19,38 +19,33 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="form-group col-xs-12">
-                                    <label>Nombres:</label>
-                                    <input type="text" class="form-control" placeholder="Ingrese nombres" required>
 
-
-@inputText(formulario("name"), '_showConstraints -> false, 'placeholder -> "Nombres", '_label -> null)
+@helper.input(formulario("name"), '_showConstraints -> false,'_label -> "Nombres:"){ (id, name, value, args) =>
+    <input type="text" placeholder="Ingrese nombres" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+}
 
 
                                 </div>
                                 <div class="form-group col-xs-12">
-                                    <label>Apellidos:</label>
-                                    <input type="text" class="form-control" placeholder="Ingrese apellidos" required>
-
-@inputText(formulario("last_name"), '_showConstraints -> false, 'placeholder -> "Apellidos", '_label -> null)
-
-                                </div>
-                                <div class="form-group col-xs-12">
-                                    <label>E-mail:</label>
-                                    <input type="email" class="form-control" placeholder="Ingrese correo" required>
-
-@inputText(formulario("email"), '_showConstraints -> false, 'placeholder -> "Email", '_label -> null)
+@helper.input(formulario("last_name"), '_showConstraints -> false,'_label -> "Apellidos:"){ (id, name, value, args) =>
+    <input type="text" placeholder="Ingrese apellidos" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+}
 
                                 </div>
                                 <div class="form-group col-xs-12">
-                                    <label>Teléfono:</label>
-                                    <input type="text" class="form-control" placeholder="Ingrese teléfono" required>
 
-@inputText(formulario("phone"), '_showConstraints -> false, 'placeholder -> "Teléfono", '_label -> null)
+@helper.input(formulario("email"), '_showConstraints -> false,'_label -> "E-mail:"){ (id, name, value, args) =>
+    <input type="email" placeholder="Ingrese correo" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+}
 
-                                </div>
+                             </div>
                                 <div class="form-group col-xs-12">
-                                    <label>Domicilio:</label>
-                                    <textarea class="form-control" rows="2" placeholder="Ingrese domicilio" required></textarea>
+                                  
+
+
+@helper.input(formulario("phone"), '_showConstraints -> false,'_label -> "Teléfono:"){ (id, name, value, args) =>
+    <input type="text" placeholder="Ingrese teléfono" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+}
                                 </div>
                             </div>
                         </div>
@@ -63,17 +58,17 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group col-xs-12">
-                                <label>User Name:</label>
-                                <input type="text" class="form-control" placeholder="Ingrese DNI" required>
 
-@inputText(formulario("user_admin"), '_showConstraints -> false, 'placeholder -> "Usuario", '_label -> null)
+@helper.input(formulario("user_admin"), '_showConstraints -> false,'_label -> "User Name:"){ (id, name, value, args) =>
+    <input type="text" placeholder="Ingrese DNI" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+}
 
                             </div>
                             <div class="form-group col-xs-12">
-                                <label>Password:</label>
-                                <input type="text" class="form-control" readonly="true" required>
 
-@inputPassword(formulario("password"), '_showConstraints -> false, 'placeholder -> "Password", '_label -> null)
+@helper.input(formulario("password"), '_showConstraints -> false,'_label -> "Password:"){ (id, name, value, args) =>
+    <input type="password" placeholder="Ingrese password" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+}
 
                             </div>
                         </div>
