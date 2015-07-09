@@ -45,4 +45,15 @@ public class MasterController extends Controller {
         formulario.get().save();
         return redirect("/master/registrarCourse");
     }
+
+    public Result createFormTheme(){
+        Form<Theme> formulario = Form.form(Theme.class);
+        return ok(registrarTheme.render(formulario));
+    }
+
+    public Result saveFormTheme(){
+        Form<Theme> formulario = Form.form(Theme.class).bindFromRequest();
+        formulario.get().save();
+        return redirect("/master/registrarTheme");
+    }
 }

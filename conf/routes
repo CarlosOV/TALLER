@@ -28,6 +28,10 @@ POST	/master/registrarTutor					controllers.MasterController.saveFormTutor()
 GET		/master/registrarCourse					controllers.MasterController.createFormCourse()
 POST	/master/registrarCourse					controllers.MasterController.saveFormCourse()
 
+#Registrar theme
+GET		/master/registrarTheme					controllers.MasterController.createFormTheme()
+POST	/master/registrarTheme					controllers.MasterController.saveFormTheme()
+
 #Login
 GET		/new									controllers.Home.verificarUser()
 
