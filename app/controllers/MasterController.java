@@ -34,4 +34,15 @@ public class MasterController extends Controller {
         formulario.get().save();
         return redirect("/master/registrarTutor");
     }
+
+    public Result createFormCourse(){
+        Form<Course> formulario = Form.form(Course.class);
+        return ok(registrarCourse.render(formulario));
+    }
+
+    public Result saveFormCourse(){
+        Form<Course> formulario = Form.form(Course.class).bindFromRequest();
+        formulario.get().save();
+        return redirect("/master/registrarCourse");
+    }
 }
