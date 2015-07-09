@@ -24,7 +24,9 @@ public class MasterController extends Controller {
 
     public Result createFormTutor(){
         Form<Tutor> formulario = Form.form(Tutor.class);
-        return ok(registrarTutor.render(formulario));
+        Form<Variable> variable = Form.form(Variable.class);
+
+        return ok(registrarTutor.render(formulario, variable, AdminController.find.all()));
     }
 
     public Result saveFormTutor(){

@@ -69,7 +69,6 @@ public class AdminController extends Controller {
         for(Administrador admin : AdminController.find.orderBy("last_name").findList()){
             map.put(admin.getId() + "", admin.last_name + " " + admin.name);
         }
-
         return map;
     }
 }

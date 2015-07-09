@@ -1,4 +1,4 @@
-@(formulario: Form[Tutor])
+@(formulario: Form[Tutor], variable: Form[Variable], admin: List[Administrador])
 @import template._
 @import helper._
 @import models.Administrador
@@ -55,7 +55,12 @@
 }
                                 </div>
                                 <div class="form-group col-xs-12">
-                                    @select(formulario("admin"), options(AdminController.showAdministradores()), '_label -> "Administrador:",'class -> "form-control")
+                                    @select(variable("idAdmin"), options(AdminController.showAdministradores()), '_label -> "Administrador:",'class -> "form-control")
+                                    @for(administrador <- admin){
+                                        @if(variable.get().getIdAdmin() == administrador.getId()){
+                                            formulario.set().setAdmin(administrador);
+                                        }
+                                    }
                                 </div>
                         </div>
                     </div>
