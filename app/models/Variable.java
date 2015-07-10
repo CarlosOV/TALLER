@@ -2,17 +2,17 @@ package models;
 
 public class Variable{
 
-	private String idAdmin;
+	private int idAdmin;
 
 	public Variable(){
-		idAdmin = "";
+		idAdmin = 0;
 	}
 
-	public void setIdAdmin(String idAdmin){
+	public void setIdAdmin(int idAdmin){
 		this.idAdmin = idAdmin;
 	}
 
-	public String getIdAdmin(){
+	public int getIdAdmin(){
 		return idAdmin;
 	}
 }

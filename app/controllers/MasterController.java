@@ -31,6 +31,10 @@ public class MasterController extends Controller {
 
     public Result saveFormTutor(){
         Form<Tutor> formulario = Form.form(Tutor.class).bindFromRequest();
+        Form<Variable> formu = Form.form(Variable.class).bindFromRequest(); 
+
+        formulario.get().setAdmin(AdminController.find.where().eq("id", formu.get().getIdAdmin()).findList());
+
         formulario.get().save();
         return redirect("/master/registrarTutor");
     }
