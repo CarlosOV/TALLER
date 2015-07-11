@@ -11,6 +11,7 @@ import models.*;
 
 public class MasterController extends Controller {
 
+    //FORMULARIO PARA ADMINISTRADORES
     public Result createFormAdmin(){
         Form<Administrador> formulario = Form.form(Administrador.class);
     	return ok(registrarAdmin.render(formulario));
@@ -22,6 +23,8 @@ public class MasterController extends Controller {
     	return redirect("/master/registrarAdmin");
     }
 
+
+    //FORMULARIO PARA TUTORES
     public Result createFormTutor(){
         Form<Tutor> formulario = Form.form(Tutor.class);
         Form<Variable> variable = Form.form(Variable.class);
@@ -40,6 +43,8 @@ public class MasterController extends Controller {
         return redirect("/master/registrarTutor");
     }
 
+
+    //FORMULARIOS PARA CURSOS
     public Result createFormCourse(){
         Form<Course> formulario = Form.form(Course.class);
         return ok(registrarCourse.render(formulario));
@@ -51,6 +56,8 @@ public class MasterController extends Controller {
         return redirect("/master/registrarCourse");
     }
 
+
+    //FORMULARIOS PARA TEMAS
     public Result createFormTheme(){
         Form<Theme> formulario = Form.form(Theme.class);
         return ok(registrarTheme.render(formulario));

@@ -50,6 +50,7 @@ public class TutorController extends Controller {
         }
         if(flag){
             session("user", tutor.getName() + " " + tutor.getLast_name());
+            session("id", tutor.getId() + "");
             return true;
         }else{
             return false;

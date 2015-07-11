@@ -16,16 +16,10 @@ public class Home extends Controller {
 	}
 
     public Result login(){
-    	Form<Login> formulario = new Form(Login.class);
-    	return ok(login.render(formulario, negado));
-    }
-
-    public Result logout() {
         session().clear();
-        Form<Login> formulario = new Form(Login.class);
-        negado = true;
-        
-        return ok(login.render(formulario, negado));
+    	Form<Login> formulario = new Form(Login.class);
+
+    	return ok(login.render(formulario, negado));
     }
 
     public Result verificarUser(){

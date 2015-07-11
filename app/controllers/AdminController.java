@@ -55,7 +55,8 @@ public class AdminController extends Controller {
     		index++;
     	}
         if(flag){
-            session("user_id", ""+admin.getId());
+            session("user", admin.getName() + " " + admin.getLast_name());
+            session("id", admin.getId() + "");
             return true;
         }else{
             return false;

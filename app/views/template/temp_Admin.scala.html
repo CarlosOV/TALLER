@@ -3,22 +3,127 @@
 <!DOCTYPE html>
 
 <html lang="es">
-    <head>
-        <title>@title</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
-        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/estilo.css")">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css">
-    </head>
-    <body>
-        @content
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
-        <script src="@routes.Assets.versioned("javascripts/javascript.js")" type="text/javascript"></script>
-        <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")" type="text/javascript"></script>
-    </body>
+<head>
+    <title>@title</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/estilo.css")">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar style-icip" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle color-white" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only color-white">Desplegar navegación</span>
+                    <span class="icon-bar color-white"></span>
+                    <span class="icon-bar color-white"></span>
+                    <span class="icon-bar color-white"></span>
+                </button>
+                <a class="navbar-brand" href="#">ICIP</a>
+            </div>
+     
+      <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+           otro elemento que se pueda ocultar al minimizar la barra -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@routes.AdminController.menu" class="color-white bold"><i class="fa fa-home color-white"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-white bold"><i class="fa fa-files-o color-white"></i> Entregables</a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-white bold"><i class="fa fa-calendar-o color-white"></i> Consultas</a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-white bold"><i class="fa fa-bar-chart color-white"></i> Estadísticas</a>
+                    </li>
+                    <li>
+                        <a href="@routes.AdminController.indexCuenta" class="color-white bold"><i class="fa fa-user color-white"></i> Usuario</a>
+                    </li>
+                </ul> 
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="@routes.AdminController.indexCuenta" class="color-white bold"><i class="fa fa-cog"></i> @session.get("user")</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle color-white bold" data-toggle="dropdown"><i class="fa fa-eye"></i> Ver registros <b class="caret"></b></a>
+                        <ul class="dropdown-menu style-icip">
+                            <li>
+                                <a href="#" class="color-white bold">Vencidos <span class="label label-danger pull-right">42</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="color-white bold">Pendientes <span class="label label-warning pull-right">42</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="color-white bold">Entregados <span class="label label-success pull-right">42</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/" class="color-white bold"><i class="fa fa-sign-out"></i> Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="row">
+            <aside class="col-xs-12 col-md-3">
+                <div class="panel-group a-none" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading style-icip">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="a-none">
+                                <h4 class="panel-title title-icip color-white">
+                                    <i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Mi información
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-user-plus"></i><a href="@routes.AdminController.editarInfo" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Editar Datos</a> 
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading style-icip">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="a-none">
+                                <h4 class="panel-title title-icip color-white">
+                                    <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Mi Cuenta
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-user-plus"></i><a href="@routes.AdminController.editarCuenta" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Cambiar Contraseña</a> 
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            @content
+        </div>
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="@routes.Assets.versioned("javascripts/javascript.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+</body>
 </html>

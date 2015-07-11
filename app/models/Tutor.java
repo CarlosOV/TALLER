@@ -32,7 +32,7 @@ public class Tutor extends Model{
 	String email;
 
 	public Tutor(){
-
+		
 	}
 
 	public Long getId() {

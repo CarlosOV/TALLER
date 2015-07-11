@@ -35,8 +35,5 @@ POST	/master/registrarTheme					controllers.MasterController.saveFormTheme()
 #Login
 GET		/new									controllers.Home.verificarUser()
 
-#Logout
-GET     /logout                     			controllers.Home.logout()
-
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
