@@ -28,6 +28,10 @@ POST	/master/registrarTutor					controllers.MasterController.saveFormTutor()
 GET		/master/registrarLevel					controllers.MasterController.createFormLevel()
 POST	/master/registrarLevel					controllers.MasterController.saveFormLevel()
 
+#Registrar area
+GET		/master/registrarArea					controllers.MasterController.createFormArea()
+POST	/master/registrarArea					controllers.MasterController.saveFormArea()
+
 #Registrar course
 GET		/master/registrarCourse					controllers.MasterController.createFormCourse()
 POST	/master/registrarCourse					controllers.MasterController.saveFormCourse()

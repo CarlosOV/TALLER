@@ -58,6 +58,20 @@ public class MasterController extends Controller {
     }
 
 
+    //FORMULARIOS PARA AREAS
+    public Result createFormArea(){
+        Form<Area> formulario = Form.form(Area.class);
+        return ok(registrarArea.render(formulario));
+    }
+
+    public Result saveFormArea(){
+        Form<Area> formulario = Form.form(Area.class).bindFromRequest();
+
+        formulario.get().save();
+        return redirect("/master/registrarArea");
+    }
+
+
     //FORMULARIOS PARA CURSOS
     public Result createFormCourse(){
         Form<Course> formulario = Form.form(Course.class);

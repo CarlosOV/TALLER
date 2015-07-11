@@ -15,13 +15,10 @@ public class Theme extends Model{
 	@Id
 	Long id;
 
-	@ManyToOne(cascade=CascadeType.ALL)
-  	Course course;
-
   	@ManyToOne(cascade=CascadeType.ALL)
   	Level level;
 
-  	@OneToMany(mappedBy = "theme" ,cascade=CascadeType.ALL)
+  	@OneToOne(mappedBy = "theme" ,cascade=CascadeType.ALL)
 	List<Report> reports;
 
 	String name;

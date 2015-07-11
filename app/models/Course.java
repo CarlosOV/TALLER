@@ -14,14 +14,59 @@ public class Course extends Model{
 
 	@Id
 	Long id;
+
 	String name;
+
 	@ManyToOne(cascade=CascadeType.ALL)
-  	AreaCourse area;
+  	Area area;
 
   	@ManyToMany(cascade=CascadeType.ALL)
   	List<Tutor> tutors;
 
-  	@OneToMany(mappedBy = "course" ,cascade=CascadeType.ALL)
-	List<Theme> themes;
+  	@ManyToMany(cascade=CascadeType.ALL)
+  	List<Level> levels;
 
+	public Course(){
+
+	}
+
+	public void setId(Long id){
+		this.id = id;
+	}
+
+	public Long getId(){
+		return this.id;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public String getName(){
+		return this.name;
+	}
+
+	public void setArea(Area area){
+		this.area = area;
+	}
+
+	public Area getArea(){
+		return this.area;
+	}
+
+	public void setTutors(List<Tutor> tutor){
+		this.tutors = tutors;
+	}
+
+	public List<Tutor> getTutor(){
+		return this.tutors;
+	}
+
+	public void setLevels(List<Level> levels){
+		this.levels = levels;
+	}
+
+	public List<Level> getLevels(){
+		return this.levels;
+	}
 }
