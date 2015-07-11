@@ -1,0 +1,31 @@
+@(formulario: Form[Level])
+@import template._
+@import helper._
+
+@temp_Master("Registro de Nuevo Nivel"){
+<article id="myContainer" class="col-xs-12 col-md-9">
+    @form(routes.MasterController.saveFormLevel()){
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading style-icip">
+                        <h3 class="panel-title title-icip">Datos del Nivel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+@helper.input(formulario("name"), '_showConstraints -> false,'_label -> "Descripción:"){ (id, name, value, args) =>
+<input type="text" placeholder="Ingrese nivel" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-center">
+                    <button type="submit" class="btn button-icip button-icip-lg">Registrar Nivel</button>
+                </div>
+            </div>
+        </div>
+    }
+</article> 
+}

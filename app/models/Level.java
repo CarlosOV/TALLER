@@ -19,4 +19,31 @@ public class Level extends Model{
 	@OneToMany(mappedBy = "level" ,cascade=CascadeType.ALL)
 	List<Theme> themes;
 
+	public Level(){
+
+	}
+
+	public void setId(Long id){
+		this.id = id;
+	}
+
+	public Long getId(){
+		return this.id;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public String getName(){
+		return this.name;
+	}
+
+	public void setThemes(List<Theme> themes){
+		this.themes = themes;
+	}
+
+	public List<Theme> getThemes(){
+		return this.themes;
+	}
 }

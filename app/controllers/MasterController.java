@@ -43,6 +43,20 @@ public class MasterController extends Controller {
         return redirect("/master/registrarTutor");
     }
 
+    
+    //FORMULARIOS PARA NIVELES
+    public Result createFormLevel(){
+        Form<Level> formulario = Form.form(Level.class);
+        return ok(registrarLevel.render(formulario));
+    }
+
+    public Result saveFormLevel(){
+        Form<Level> formulario = Form.form(Level.class).bindFromRequest();
+
+        formulario.get().save();
+        return redirect("/master/registrarLevel");
+    }
+
 
     //FORMULARIOS PARA CURSOS
     public Result createFormCourse(){

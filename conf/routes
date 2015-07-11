@@ -24,6 +24,10 @@ POST	/master/registrarAdmin					controllers.MasterController.saveFormAdmin()
 GET		/master/registrarTutor					controllers.MasterController.createFormTutor()
 POST	/master/registrarTutor					controllers.MasterController.saveFormTutor()
 
+#Registrar level
+GET		/master/registrarLevel					controllers.MasterController.createFormLevel()
+POST	/master/registrarLevel					controllers.MasterController.saveFormLevel()
+
 #Registrar course
 GET		/master/registrarCourse					controllers.MasterController.createFormCourse()
 POST	/master/registrarCourse					controllers.MasterController.saveFormCourse()

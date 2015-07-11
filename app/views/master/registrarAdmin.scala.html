@@ -3,81 +3,65 @@
 @import helper._
 
 @temp_Master("Registro de Nuevo Administrador"){
-
-
-
-@*<input type="submit" value="Crear">*@
-
-	<article id="myContainer" class="col-xs-12 col-md-9">
-        @form(routes.MasterController.saveFormAdmin()){
-            <div class="row">
-                <div class="col-xs-12 col-md-5 col-md-offset-1">
-                    <div class="panel panel-default">
-                        <div class="panel-heading style-icip">
-                            <h3 class="panel-title title-icip">Datos del Admnistrador</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="form-group col-xs-12">
-
+<article id="myContainer" class="col-xs-12 col-md-9">
+    @form(routes.MasterController.saveFormAdmin()){
+        <div class="row">
+            <div class="col-xs-12 col-md-5 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading style-icip">
+                        <h3 class="panel-title title-icip">Datos del Admnistrador</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-xs-12">
 @helper.input(formulario("name"), '_showConstraints -> false,'_label -> "Nombres:"){ (id, name, value, args) =>
-    <input type="text" placeholder="Ingrese nombres" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+<input type="text" placeholder="Ingrese nombres" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
 }
-
-
-                                </div>
-                                <div class="form-group col-xs-12">
+                            </div>
+                            <div class="form-group col-xs-12">
 @helper.input(formulario("last_name"), '_showConstraints -> false,'_label -> "Apellidos:"){ (id, name, value, args) =>
-    <input type="text" placeholder="Ingrese apellidos" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+<input type="text" placeholder="Ingrese apellidos" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
 }
-
-                                </div>
-                                <div class="form-group col-xs-12">
+                            </div>
+                            <div class="form-group col-xs-12">
 
 @helper.input(formulario("email"), '_showConstraints -> false,'_label -> "E-mail:"){ (id, name, value, args) =>
-    <input type="email" placeholder="Ingrese correo" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+<input type="email" placeholder="Ingrese correo" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
 }
-
-                             </div>
-                                <div class="form-group col-xs-12">
-                                  
-
-
+                            </div>
+                            <div class="form-group col-xs-12">                  
 @helper.input(formulario("phone"), '_showConstraints -> false,'_label -> "Teléfono:"){ (id, name, value, args) =>
-    <input type="text" placeholder="Ingrese teléfono" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+<input type="text" placeholder="Ingrese teléfono" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
 }
-                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-5">
-                    <div class="panel panel-default">
-                        <div class="panel-heading style-icip">
-                            <h3 class="panel-title title-icip">Datos de la Cuenta</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="form-group col-xs-12">
-
-@helper.input(formulario("user_admin"), '_showConstraints -> false,'_label -> "User Name:"){ (id, name, value, args) =>
-    <input type="text" placeholder="Ingrese DNI" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
-}
-
-                            </div>
-                            <div class="form-group col-xs-12">
-
-@helper.input(formulario("password"), '_showConstraints -> false,'_label -> "Password:"){ (id, name, value, args) =>
-    <input type="password" placeholder="Ingrese password" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
-}
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="float-center">
-                        <button type="submit" class="btn button-icip button-icip-lg">Registrar Adminstrador</button>
                     </div>
                 </div>
             </div>
-        }
-    </article> 
+            <div class="col-xs-12 col-md-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading style-icip">
+                        <h3 class="panel-title title-icip">Datos de la Cuenta</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group col-xs-12">
+@helper.input(formulario("user_admin"), '_showConstraints -> false,'_label -> "User Name:"){ (id, name, value, args) =>
+<input type="text" placeholder="Ingrese DNI" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+}
+                        </div>
+                        <div class="form-group col-xs-12">
+
+@helper.input(formulario("password"), '_showConstraints -> false,'_label -> "Password:"){ (id, name, value, args) =>
+<input type="password" placeholder="Ingrese password" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="float-center">
+                    <button type="submit" class="btn button-icip button-icip-lg">Registrar Adminstrador</button>
+                </div>
+            </div>
+        </div>
+    }
+</article> 
 }

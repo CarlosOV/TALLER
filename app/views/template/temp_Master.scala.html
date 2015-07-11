@@ -33,7 +33,7 @@
                             <div class="panel-heading style-icip">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="a-none">
                                     <h4 class="panel-title title-icip color-white">
-                                        <i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Administrador
+                                        <i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Administradores
                                     </h4>
                                 </a>
                             </div>
@@ -42,12 +42,12 @@
                                     <table class="table table-hover">
                                         <tr>
                                             <td>
-                                                <i class="fa fa-user-plus"></i><a href="@routes.MasterController.createFormAdmin" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nuevo Administrador</a> 
+                                                <i class="fa fa-check"></i><a href="@routes.MasterController.createFormAdmin" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nuevo Administrador</a> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <i class="fa fa-user-times"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Registro</a>
+                                                <i class="fa fa-times"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Administrador</a>
                                             </td>
                                         </tr>
                                     </table>
@@ -58,7 +58,7 @@
                             <div class="panel-heading style-icip">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="a-none">
                                     <h4 class="panel-title title-icip color-white">
-                                        <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Tutor
+                                        <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Tutores
                                     </h4>
                                 </a>
                             </div>
@@ -67,12 +67,12 @@
                                     <table class="table table-hover">
                                         <tr>
                                             <td>
-                                                <i class="fa fa-user-plus"></i><a href="@routes.MasterController.createFormTutor" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nuevos Tutor</a> 
+                                                <i class="fa fa-check"></i><a href="@routes.MasterController.createFormTutor" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nuevo Tutor</a> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <i class="fa fa-user-times"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Registro</a>
+                                                <i class="fa fa-times"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Tutor</a>
                                             </td>
                                         </tr>
                                     </table>
@@ -83,7 +83,7 @@
                             <div class="panel-heading style-icip">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="a-none">
                                     <h4 class="panel-title title-icip color-white">
-                                        <i class="fa fa-clipboard"></i>&nbsp;&nbsp;&nbsp;&nbsp;Cursos
+                                        <i class="fa fa-sort-numeric-asc"></i>&nbsp;&nbsp;&nbsp;&nbsp;Niveles
                                     </h4>
                                 </a>
                             </div>
@@ -92,12 +92,12 @@
                                     <table class="table table-hover">
                                         <tr>
                                             <td>
-                                                <i class="fa fa-pencil"></i><a href="@routes.MasterController.createFormCourse" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nuevo Curso</a> 
+                                                <i class="fa fa-check"></i><a href="@routes.MasterController.createFormLevel" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nuevo Nivel</a> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <i class="fa fa-eraser"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Registro</a>
+                                                <i class="fa fa-times"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Nivel</a>
                                             </td>
                                         </tr>
                                     </table>
@@ -108,7 +108,7 @@
                             <div class="panel-heading style-icip">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="a-none">
                                     <h4 class="panel-title title-icip color-white">
-                                        <i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;&nbsp;&nbsp;Temas
+                                        <i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;&nbsp;&nbsp;Áreas
                                     </h4>
                                 </a>
                             </div>
@@ -117,12 +117,62 @@
                                     <table class="table table-hover">
                                         <tr>
                                             <td>
-                                                <i class="fa fa-pencil"></i><a href="@routes.MasterController.createFormTheme" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nuevos Temas</a> 
+                                                <i class="fa fa-check"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nueva Área</a> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <i class="fa fa-eraser"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Registros</a>
+                                                <i class="fa fa-times"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Área</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading style-icip">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="a-none">
+                                    <h4 class="panel-title title-icip color-white">
+                                        <i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;&nbsp;&nbsp;Cursos
+                                    </h4>
+                                </a>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-check"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nuevo Curso</a> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-times"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Curso</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading style-icip">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" class="a-none">
+                                    <h4 class="panel-title title-icip color-white">
+                                        <i class="fa fa-server"></i>&nbsp;&nbsp;&nbsp;&nbsp;Temas
+                                    </h4>
+                                </a>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-check"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Nuevo Tema</a> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-times"></i><a href="" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Eliminar Tema</a>
                                             </td>
                                         </tr>
                                     </table>
