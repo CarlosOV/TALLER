@@ -17,16 +17,26 @@ public class AdminController extends Controller {
     }
 
     public Result editarInfo(){
-        long id = Integer.parseInt(session("user_id"));
+        long id = Integer.parseInt(session("id"));
         Administrador admin = AdminController.find.byId(id);
         Form<Administrador> formulario = Form.form(Administrador.class);
-    	return ok(editarDatos.render(admin));
+    	return ok(editarDatos.render(formulario, admin));
     }
 
     public Result updateInfo(){
         Form<Administrador> formulario = Form.form(Administrador.class).bindFromRequest();
-        formulario.get().save();
-        return redirect("/master/registrarAdmin");
+        long id = Integer.parseInt(session("id"));
+        Administrador admin = AdminController.find.byId(id);
+        String name = formulario.field("name").value();
+        String last_name = formulario.field("last_name").value();
+        String phone = formulario.field("phone").value();
+        String email = formulario.field("email").value();
+        admin.name = name;
+        admin.last_name = last_name;
+        admin.phone = phone;
+        admin.email = email;
+        admin.save();
+        return redirect(routes.AdminController.indexCuenta());
     }
 
     public Result editarCuenta(){

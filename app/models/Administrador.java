@@ -23,8 +23,8 @@ public class Administrador extends Model{
 	String password;
 	public String name;
 	public String last_name;
-	String phone;
-	String email;
+	public String phone;
+	public String email;
 	
 	public Administrador(){
 		
