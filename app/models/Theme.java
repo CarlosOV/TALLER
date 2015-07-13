@@ -23,5 +23,39 @@ public class Theme extends Model{
 
 	String name;
 
+	public Theme(){
 
+	}
+
+	public void setId(Long id){
+		this.id = id;
+	}
+
+	public Long getId(){
+		return this.id;
+	}
+
+	public void setLevel(Level level){
+		this.level = level;
+	}
+
+	public Level getLevel(){
+		return this.level;
+	}
+
+	public void setReports(List<Report> reports){
+		this.reports = reports;
+	}
+
+	public List<Report> getReports(){
+		return reports;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public String getName(){
+		return this.name;
+	}
 }

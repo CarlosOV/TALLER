@@ -29,7 +29,7 @@ public class MasterController extends Controller {
         Form<Tutor> formulario = Form.form(Tutor.class);
         Form<Variable> variable = Form.form(Variable.class);
 
-        return ok(registrarTutor.render(formulario, variable, AdminController.find.all()));
+        return ok(registrarTutor.render(formulario, variable));
     }
 
     public Result saveFormTutor(){
@@ -75,7 +75,9 @@ public class MasterController extends Controller {
     //FORMULARIOS PARA CURSOS
     public Result createFormCourse(){
         Form<Course> formulario = Form.form(Course.class);
-        return ok(registrarCourse.render(formulario));
+        Form<Variable> variable = Form.form(Variable.class);
+
+        return ok(registrarCourse.render(formulario, variable));
     }
 
     public Result saveFormCourse(){
