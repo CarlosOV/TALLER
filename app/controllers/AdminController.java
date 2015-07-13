@@ -27,14 +27,14 @@ public class AdminController extends Controller {
         Form<Administrador> formulario = Form.form(Administrador.class).bindFromRequest();
         long id = Integer.parseInt(session("id"));
         Administrador admin = AdminController.find.byId(id);
-        String name = formulario.field("name").value();
-        String last_name = formulario.field("last_name").value();
-        String phone = formulario.field("phone").value();
-        String email = formulario.field("email").value();
-        admin.name = name;
-        admin.last_name = last_name;
-        admin.phone = phone;
-        admin.email = email;
+        String name = formulario.get().getName();
+        String last_name = formulario.get().getLast_name();
+        String phone = formulario.get().getPhone();
+        String email = formulario.get().getEmail();
+        admin.setName(name);
+        admin.setLast_name(last_name);
+        admin.setPhone(phone);
+        admin.setEmail(email);
         admin.save();
         return redirect(routes.AdminController.indexCuenta());
     }
