@@ -3,4 +3,33 @@
 @import helper._
 
 @temp_Master("Registro de Nuevos Temas"){
+<article id="myContainer" class="col-xs-12 col-md-9">
+	@form(routes.MasterController.saveFormTheme()){
+	    <div class="row">
+	        <div class="col-xs-12 col-md-6 col-md-offset-3">
+	            <div class="panel panel-default">
+	                <div class="panel-heading style-icip">
+	                    <h3 class="panel-title title-icip">Datos del Tema</h3>
+	                </div>
+	                <div class="panel-body">
+	                    <div class="row">
+	                        <div class="form-group col-xs-12">
+	                            @select(formulario("idAdmin"), options(CourseController.showCourses()), '_label -> "Curso:",'class -> "form-control")
+	                        </div>
+	                        <div class="form-group col-xs-12">
+	                            @select(formulario("idAdmin"), options(LevelController.showLevels()), '_label -> "Nivel:",'class -> "form-control")
+	                        </div>
+	                        <div class="form-group col-xs-12">
+	                        	@textarea(formulario("name"), args = 'rows -> 2, '_label -> "Tema:",'placeholder -> "Ingrese nombre", 'class -> "form-control")
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="float-center">
+                    <button type="submit" class="btn button-icip button-icip-lg">Registrar Tema</button>
+                </div>
+	        </div>
+	    </div>
+	}
+</article>  
 }

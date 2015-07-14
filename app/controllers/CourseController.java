@@ -9,6 +9,7 @@ import play.mvc.*;
 import play.data.*;
 import views.html.master.*;
 import models.*;
+
 public class CourseController extends Controller {
 
     public static Model.Finder<Long, Course> find = new Model.Finder<Long, Course>(Long.class, Course.class);

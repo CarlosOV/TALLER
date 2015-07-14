@@ -18,32 +18,35 @@ POST	/administrador/editarDatos				controllers.AdminController.updateInfo()
 
 GET		/administrador/editarCuenta				controllers.AdminController.editarCuenta()
 
-#Registrar admin
+#OPERACIONES SOBRE ADMINISTRADORES
 GET		/master/registrarAdmin					controllers.MasterController.createFormAdmin()
 POST	/master/registrarAdmin					controllers.MasterController.saveFormAdmin()
+GET     /master/eliminarAdmin					controllers.MasterController.listOfAdmin()
 
-#Listar admin
-GET    /master/listarAdmin						controllers.MasterController.listOfAdmin()
-
-#Registrar tutor
+#OPERACIONES SOBRE TUTORES
 GET		/master/registrarTutor					controllers.MasterController.createFormTutor()
 POST	/master/registrarTutor					controllers.MasterController.saveFormTutor()
+GET     /master/eliminarTutor					controllers.MasterController.listOfTutor()
 
-#Registrar level
+#OPERACIONES SOBRE NIVELES
 GET		/master/registrarLevel					controllers.MasterController.createFormLevel()
 POST	/master/registrarLevel					controllers.MasterController.saveFormLevel()
+GET		/master/actualizarLevel					controllers.MasterController.editLevel()
 
-#Registrar area
+#OPERACIONES SOBRE AREA
 GET		/master/registrarArea					controllers.MasterController.createFormArea()
 POST	/master/registrarArea					controllers.MasterController.saveFormArea()
+GET  	/master/actualizarArea					controllers.MasterController.editArea()
 
-#Registrar course
+#OPERACIONES SOBRE CURSOS
 GET		/master/registrarCourse					controllers.MasterController.createFormCourse()
 POST	/master/registrarCourse					controllers.MasterController.saveFormCourse()
+GET		/master/actualizarCourse				controllers.MasterController.editCourse()
 
-#Registrar theme
+#OPERACIONES SOBRE TEMAS
 GET		/master/registrarTheme					controllers.MasterController.createFormTheme()
 POST	/master/registrarTheme					controllers.MasterController.saveFormTheme()
+GET		/master/actualizarTheme 				controllers.MasterController.editTheme()
 
 #Login
 GET		/new									controllers.Home.verificarUser()

@@ -1,0 +1,39 @@
+@(admins : List[Administrador])
+@import template._
+@import helper._
+@temp_Master("Eliminar Administradores"){
+
+<div class="container container-top col-md-9 col-xs-12s">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading style-icip">
+                <h4 class="title-panel">Administradores registrados</h4>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="table-view" class="table table-striped">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="text-center">Nombres</th>
+                                <th class="text-center">Apellidos</th>
+                                <th class="text-center">Usuario</th>
+                                <th class="text-center">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @for(admin <- admins){
+                            <tr class="text-center">
+                                <td>@admin.getName()</td>
+                                <td>@admin.getLast_name()</td>
+                                <td>@admin.getUser_admin()</td>
+                                <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
+                            </tr> }                               
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+}

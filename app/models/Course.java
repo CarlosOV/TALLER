@@ -27,7 +27,6 @@ public class Course extends Model{
   	List<Level> levels;
 
 	public Course(){
-
 	}
 
 	public void setId(Long id){

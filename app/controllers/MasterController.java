@@ -46,8 +46,8 @@ public class MasterController extends Controller {
     }
 
     public Result listOfAdmin(){
-        List<Administrador>admins = AdminController.listAdmins();
-        return ok(listarAdmin.render(admins));
+        List<Administrador> admins = AdminController.listAdmins();
+        return ok(eliminarAdmin.render(admins));
     }
 
     //FORMULARIO PARA TUTORES
@@ -69,6 +69,11 @@ public class MasterController extends Controller {
         return redirect("/master/registrarTutor");
     }
 
+    public Result listOfTutor(){
+        List<Tutor> tutors = TutorController.find.all();
+        return ok(eliminarTutor.render(tutors));
+    }
+
     
     //FORMULARIOS PARA NIVELES
     public Result createFormLevel(){
@@ -83,6 +88,11 @@ public class MasterController extends Controller {
         return redirect("/master/registrarLevel");
     }
 
+    public Result editLevel(){
+        List<Level> levels = LevelController.find.all();
+        return ok(actualizarLevel.render(levels));
+    }
+
 
     //FORMULARIOS PARA AREAS
     public Result createFormArea(){
@@ -95,6 +105,11 @@ public class MasterController extends Controller {
 
         formulario.get().save();
         return redirect("/master/registrarArea");
+    }
+
+    public Result editArea(){
+        List<Area> areas = AreaController.find.all();
+        return ok(actualizarArea.render(areas));
     }
 
 
@@ -118,6 +133,11 @@ public class MasterController extends Controller {
         return redirect("/master/registrarCourse");
     }
 
+    public Result editCourse(){
+        List<Course> courses = CourseController.find.all();
+        return ok(actualizarCourse.render(courses));
+    }
+
 
     //FORMULARIOS PARA TEMAS
     public Result createFormTheme(){
@@ -129,5 +149,9 @@ public class MasterController extends Controller {
         Form<Theme> formulario = Form.form(Theme.class).bindFromRequest();
         formulario.get().save();
         return redirect("/master/registrarTheme");
+    }
+    public Result editTheme(){
+        List<Theme> themes = ThemeController.find.all();
+        return ok(actualizarTheme.render(themes));
     }
 }

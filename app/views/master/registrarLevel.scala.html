@@ -14,7 +14,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="form-group col-xs-12">
-@helper.input(formulario("name"), '_showConstraints -> false,'_label -> "Descripción:"){ (id, name, value, args) =>
+@helper.input(formulario("name"), '_showConstraints -> false,'_label -> "Nombre:"){ (id, name, value, args) =>
 <input type="text" placeholder="Ingrese nivel" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
 }
                             </div>
