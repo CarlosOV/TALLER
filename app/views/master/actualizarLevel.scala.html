@@ -15,17 +15,22 @@
                         <thead>
                             <tr class="text-center">
                                 <th class="text-center">Descripción</th>
-                                <th class="text-center">Acción</th>
-                                <th class="text-center">Acción</th>
+                                <th class="text-center"></th>
+                                <th class="text-center"></th>
                             </tr>
                         </thead>
                         <tbody>
-                        @for(level <- levels){
-                            <tr class="text-center">
-                                <td>@level.getName()</td>
-                                <td><button id="btnDialog" class="btn style-icip">Editar</button></td>
-                                <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
-                            </tr> }                               
+                        @if(levels != null){
+                            @for(level <- levels){
+                                <tr class="text-center">
+                                    <td>@level.getName()</td>
+                                    <td><button type="button" data-toggle="modal" data-target="#editModal" class="btn style-icip">Editar</button></td>
+                                    @form(routes.MasterController.deleteLevel(level.getId())){
+                                        <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
+                                    }
+                                </tr> 
+                            }
+                        }                               
                         </tbody>
                     </table>
                 </div>
@@ -33,5 +38,4 @@
         </div>
     </div>
 </div>
-
 }

@@ -17,17 +17,22 @@
                                 <th class="text-center">Nombres</th>
                                 <th class="text-center">Apellidos</th>
                                 <th class="text-center">Usuario</th>
-                                <th class="text-center">Acción</th>
+                                <th class="text-center"></th>
                             </tr>
                         </thead>
                         <tbody>
-                        @for(admin <- admins){
-                            <tr class="text-center">
-                                <td>@admin.getName()</td>
-                                <td>@admin.getLast_name()</td>
-                                <td>@admin.getUser_admin()</td>
-                                <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
-                            </tr> }                               
+                        @if(admins != null){
+                            @for(admin <- admins){
+                                <tr class="text-center">
+                                    <td>@admin.getName()</td>
+                                    <td>@admin.getLast_name()</td>
+                                    <td>@admin.getUser_admin()</td>
+                                    @form(routes.MasterController.deleteAdmin(admin.getId())){
+                                        <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
+                                    }
+                                </tr> 
+                            }   
+                        }                            
                         </tbody>
                     </table>
                 </div>

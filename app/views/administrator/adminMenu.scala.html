@@ -1,38 +1,37 @@
 @import template._
 @temp_Void("Menu"){
-	<div id="container-menu">
-        <a href="@routes.AdminController.menu">
-            <div class="option2" id="block1">
-                <div class="icon-container">
-                    <i class="fa fa-home fa-3x color-white"></i>
-                </div>
-                <p class="color-white title-menu">Home</p>
+<div id="container-menu">
+    <a href="@routes.AdminController.menu">
+        <div class="option2" id="block1">
+            <div class="icon-container">
+                <i class="fa fa-home fa-3x color-white"></i>
             </div>
-        </a>
-        <a href="">
-            <div class="option2" id="block3">
-                <div class="icon-container">
-                    <i class="fa fa-calendar-o fa-3x color-white"></i>
-                </div>
-                <p class="color-white title-menu">Consultas</p>
-            </div> 
-        </a>
-        <a href="">
-            <div class="option2" id="block4">
-                <div class="icon-container">
-                    <i class="fa fa-bar-chart fa-3x color-white"></i>
-                </div>
-                <p class="color-white title-menu">Progreso</p>
+            <p class="color-white title-menu">Home</p>
+        </div>
+    </a>
+    <a href="">
+        <div class="option2" id="block3">
+            <div class="icon-container">
+                <i class="fa fa-calendar-o fa-3x color-white"></i>
             </div>
-        </a>
-        <a href="@routes.AdminController.indexCuenta">
-            <div class="option2" id="block5">
-                <div class="icon-container">
-                    <i class="fa fa-user fa-3x color-white"></i>
-                </div>
-                <p class="color-white title-menu">Usuario</p>
+            <p class="color-white title-menu">Consultas</p>
+        </div> 
+    </a>
+    <a href="">
+        <div class="option2" id="block4">
+            <div class="icon-container">
+                <i class="fa fa-bar-chart fa-3x color-white"></i>
             </div>
-        </a>
-
-    </div>
+            <p class="color-white title-menu">Progreso</p>
+        </div>
+    </a>
+    <a href="@routes.AdminController.indexCuenta">
+        <div class="option2" id="block5">
+            <div class="icon-container">
+                <i class="fa fa-user fa-3x color-white"></i>
+            </div>
+            <p class="color-white title-menu">Usuario</p>
+        </div>
+    </a>
+</div>
 }

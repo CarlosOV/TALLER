@@ -22,16 +22,19 @@ GET		/administrador/editarCuenta				controllers.AdminController.editarCuenta()
 GET		/master/registrarAdmin					controllers.MasterController.createFormAdmin()
 POST	/master/registrarAdmin					controllers.MasterController.saveFormAdmin()
 GET     /master/eliminarAdmin					controllers.MasterController.listOfAdmin()
+POST    /master/eliminarAdmin					controllers.MasterController.deleteAdmin(id:Long)
 
 #OPERACIONES SOBRE TUTORES
 GET		/master/registrarTutor					controllers.MasterController.createFormTutor()
 POST	/master/registrarTutor					controllers.MasterController.saveFormTutor()
 GET     /master/eliminarTutor					controllers.MasterController.listOfTutor()
+POST    /master/eliminarTutor					controllers.MasterController.deleteTutor(id:Long)
 
 #OPERACIONES SOBRE NIVELES
 GET		/master/registrarLevel					controllers.MasterController.createFormLevel()
 POST	/master/registrarLevel					controllers.MasterController.saveFormLevel()
 GET		/master/actualizarLevel					controllers.MasterController.editLevel()
+POST	/master/actualizarLevel					controllers.MasterController.deleteLevel(id:Long)
 
 #OPERACIONES SOBRE AREA
 GET		/master/registrarArea					controllers.MasterController.createFormArea()

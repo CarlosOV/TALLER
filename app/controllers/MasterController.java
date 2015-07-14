@@ -28,11 +28,12 @@ public class MasterController extends Controller {
         String user = formulario.get().getUser_admin();
         String[] lastNames = last_name.split(" ");
         String password;
-        if(lastNames.length>1){
-        password = "a"+lastNames[0].substring(0,3)+lastNames[1].substring(0,3)+name.substring(0,2);
+
+        if(lastNames.length > 1){
+            password = "a"+lastNames[0].substring(0,3)+lastNames[1].substring(0,3)+name.substring(0,2);
         }
         else{
-        password = "a"+lastNames[0].substring(0,3)+name.substring(0,2);
+            password = "a"+lastNames[0].substring(0,3)+name.substring(0,2);
         }
         password.toLowerCase();
         admin.setName(name);
@@ -50,6 +51,12 @@ public class MasterController extends Controller {
         return ok(eliminarAdmin.render(admins));
     }
 
+    public Result deleteAdmin(Long id){
+        AdminController.find.ref(id).delete();
+        return redirect("/master/eliminarAdmin");
+    }
+
+
     //FORMULARIO PARA TUTORES
     public Result createFormTutor(){
         Form<Tutor> formulario = Form.form(Tutor.class);
@@ -61,17 +68,42 @@ public class MasterController extends Controller {
     public Result saveFormTutor(){
         Form<Tutor> formulario = Form.form(Tutor.class).bindFromRequest();
         Form<Variable> formu = Form.form(Variable.class).bindFromRequest(); 
+        Tutor tutor = new Tutor();
 
+        String name = formulario.get().getName();
+        String last_name = formulario.get().getLast_name();
+        String phone = formulario.get().getPhone();
+        String email = formulario.get().getEmail();
+        String user = formulario.get().getUser_tutor();
+        String[] lastNames = last_name.split(" ");
+        String password;
 
-        formulario.get().setAdmin(AdminController.find.where().eq("id", formu.get().getIdAdmin()).findUnique());
-
-        formulario.get().save();
-        return redirect("/master/registrarTutor");
+        if(lastNames.length > 1){
+            password = "t"+lastNames[0].substring(0,3)+lastNames[1].substring(0,3)+name.substring(0,2);
+        }
+        else{
+            password = "t"+lastNames[0].substring(0,3)+name.substring(0,2);
+        }
+        password.toLowerCase();
+        tutor.setName(name);
+        tutor.setLast_name(last_name);
+        tutor.setPhone(phone);
+        tutor.setEmail(email);
+        tutor.setUser_tutor(user);
+        tutor.setPassword(password);
+        tutor.setAdmin(AdminController.find.where().eq("id", formu.get().getIdAdmin()).findUnique());
+        tutor.save();
+        return redirect("/master/registrarAdmin");
     }
 
     public Result listOfTutor(){
         List<Tutor> tutors = TutorController.find.all();
         return ok(eliminarTutor.render(tutors));
+    }
+
+    public Result deleteTutor(Long id){
+        TutorController.find.ref(id).delete();
+        return redirect("/master/eliminarTutor");
     }
 
     
@@ -91,6 +123,11 @@ public class MasterController extends Controller {
     public Result editLevel(){
         List<Level> levels = LevelController.find.all();
         return ok(actualizarLevel.render(levels));
+    }
+
+    public Result deleteLevel(Long id){
+        LevelController.find.ref(id).delete();
+        return redirect("/master/actualizarLevel");
     }
 
 

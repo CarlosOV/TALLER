@@ -41,17 +41,12 @@
             <div class="col-xs-12 col-md-5">
                 <div class="panel panel-default">
                     <div class="panel-heading style-icip">
-                        <h3 class="panel-title title-icip">Datos de la Cuenta</h3>
+                        <h3 class="panel-title title-icip">Datos de la Cuenta</h3>s
                     </div>
                     <div class="panel-body">
                         <div class="form-group col-xs-12">
                                 @helper.input(formulario("user_tutor"), '_showConstraints -> false,'_label -> "User Name:"){ (id, name, value, args) =>
 <input type="text" placeholder="Ingrese DNI" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
-}
-                            </div>
-                            <div class="form-group col-xs-12">
-                                @helper.input(formulario("password"), '_showConstraints -> false,'_label -> "Password:"){ (id, name, value, args) =>
-<input type="text" placeholder="Ingrese password" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
 }
                             </div>
                             <div class="form-group col-xs-12">

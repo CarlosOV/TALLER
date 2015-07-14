@@ -17,17 +17,28 @@
                                 <th class="text-center">Nombres</th>
                                 <th class="text-center">Apellidos</th>
                                 <th class="text-center">Usuario</th>
-                                <th class="text-center">Acción</th>
+                                <th class="text-center">Administrador</th>
+                                <th class="text-center"></th>
                             </tr>
                         </thead>
                         <tbody>
-                        @for(tutor <- tutors){
-                            <tr class="text-center">
-                                <td>@tutor.getName()</td>
-                                <td>@tutor.getLast_name()</td>
-                                <td>@tutor.getUser_tutor()</td>
-                                <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
-                            </tr> }                               
+                        @if(tutors != null){
+                            @for(tutor <- tutors){
+                                <tr class="text-center">
+                                    <td>@tutor.getName()</td>
+                                    <td>@tutor.getLast_name()</td>
+                                    <td>@tutor.getUser_tutor()</td>
+                                    @if(tutor.getAdmin() == null){
+                                        <td>-</td>
+                                    }else{
+                                        <td>@tutor.getAdmin().getName()</td>
+                                    }
+                                    @form(routes.MasterController.deleteTutor(tutor.getId())){
+                                        <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
+                                    }
+                                </tr> 
+                            }
+                        }
                         </tbody>
                     </table>
                 </div>

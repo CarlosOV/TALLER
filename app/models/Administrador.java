@@ -17,9 +17,12 @@ public class Administrador extends Model{
 
 	@Id
 	protected Long id;
+
 	String user_admin;
+
 	@OneToMany(mappedBy = "admin" ,cascade=CascadeType.ALL)
 	List<Tutor> tutors;
+
 	String password;
 	public String name;
 	public String last_name;

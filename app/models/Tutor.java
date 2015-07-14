@@ -16,7 +16,7 @@ public class Tutor extends Model{
 	protected Long id;
 	String user_tutor;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
   	Administrador admin;
 
   	@ManyToMany(cascade=CascadeType.ALL)
