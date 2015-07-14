@@ -1,6 +1,6 @@
 package controllers;
 
-import java.util.List;
+import java.util.*;
 
 import com.avaje.ebean.Model;
 
@@ -8,11 +8,14 @@ import play.*;
 import play.mvc.*;
 import views.html.tutor.*;
 import models.*;
+import controllers.*;
 
 public class TutorController extends Controller {
 
     public Result consultas(){
-    	return ok(tutorConsulta.render());
+        long id = Integer.parseInt(session("id"));
+        List<Course> courses = findCourses(id);
+    	return ok(tutorConsulta.render(courses));
     }
 
     public Result menu(){
@@ -57,4 +60,10 @@ public class TutorController extends Controller {
         }
 
     }
+
+
+    public static List<Course> findCourses(long id){
+        return CourseController.find.where().eq("tutors.id",id).findList();
+    }
+
 }

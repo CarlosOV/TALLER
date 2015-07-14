@@ -1,3 +1,4 @@
+@(courses : List[Course])
 @import template._
 @temp_Void("Consulta de Entregas"){
 
@@ -77,34 +78,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @for(course <- courses){
                             <tr class="text-center">
-                                <td>Java</td>
+                                <td>@course.getName()</td>
                                 <td>Polimorfismo</td>
                                 <td>10/12/2015</td>
                                 <td>Entregado</td>
                                 <td><button class="btn style-icip">Visualizar</button></td>
                             </tr>
-                            <tr class="text-center">
-                                <td>Visual Basic .NET</td>
-                                <td>Componentes de Windows</td>
-                                <td>12/09/2015</td>
-                                <td>Pendiente</td>
-                                <td><button class="btn style-icip">Visualizar</button></td>
-                            </tr>
-                            <tr class="text-center">
-                                <td>Visual Basic .NET</td>
-                                <td>Componentes de Windows</td>
-                                <td>12/09/2015</td>
-                                <td>Pendiente</td>
-                                <td><button class="btn style-icip">Visualizar</button></td>
-                            </tr>
-                            <tr class="text-center">
-                                <td>Inteligencia Artificial</td>
-                                <td>Búsqueda en Profundidad (BFS)</td>
-                                <td>12/09/2015</td>
-                                <td>Terminado</td>
-                                <td><button id="btnDialog" class="btn style-icip">Visualizar</button></td>
-                            </tr>                                
+                            }                               
                         </tbody>
                     </table>
                 </div>

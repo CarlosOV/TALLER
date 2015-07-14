@@ -83,6 +83,7 @@ public class AdminController extends Controller {
         return map;
     }
 
+    //LISTADO DE TODOS LOS ADMINISTRADORES COMO OBJETOS
     public static List<Administrador> listAdmins(){
         return AdminController.find.all();
     }
