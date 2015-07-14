@@ -22,6 +22,9 @@ GET		/administrador/editarCuenta				controllers.AdminController.editarCuenta()
 GET		/master/registrarAdmin					controllers.MasterController.createFormAdmin()
 POST	/master/registrarAdmin					controllers.MasterController.saveFormAdmin()
 
+#Listar admin
+GET    /master/listarAdmin						controllers.MasterController.listOfAdmin()
+
 #Registrar tutor
 GET		/master/registrarTutor					controllers.MasterController.createFormTutor()
 POST	/master/registrarTutor					controllers.MasterController.saveFormTutor()

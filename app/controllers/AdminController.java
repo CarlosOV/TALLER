@@ -82,4 +82,8 @@ public class AdminController extends Controller {
         }
         return map;
     }
+
+    public static List<Administrador> listAdmins(){
+        return AdminController.find.all();
+    }
 }

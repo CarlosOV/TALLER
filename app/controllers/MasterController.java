@@ -3,9 +3,10 @@ package controllers;
 import play.*;
 import play.mvc.*;
 import play.data.*;
-
+import java.util.*;
 
 import views.html.master.*;
+import controllers.*;
 
 import models.*;
 
@@ -44,6 +45,10 @@ public class MasterController extends Controller {
     	return redirect("/master/registrarAdmin");
     }
 
+    public Result listOfAdmin(){
+        List<Administrador>admins = AdminController.listAdmins();
+        return ok(listarAdmin.render(admins));
+    }
 
     //FORMULARIO PARA TUTORES
     public Result createFormTutor(){
