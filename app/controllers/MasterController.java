@@ -19,7 +19,28 @@ public class MasterController extends Controller {
 
     public Result saveFormAdmin(){
     	Form<Administrador> formulario = Form.form(Administrador.class).bindFromRequest();
-    	formulario.get().save();
+        Administrador admin = new Administrador();
+        String name = formulario.get().getName();
+        String last_name = formulario.get().getLast_name();
+        String phone = formulario.get().getPhone();
+        String email = formulario.get().getEmail();
+        String user = formulario.get().getUser_admin();
+        String[] lastNames = last_name.split(" ");
+        String password;
+        if(lastNames.length>1){
+        password = "a"+lastNames[0].substring(0,3)+lastNames[1].substring(0,3)+name.substring(0,2);
+        }
+        else{
+        password = "a"+lastNames[0].substring(0,3)+name.substring(0,2);
+        }
+        password.toLowerCase();
+        admin.setName(name);
+        admin.setLast_name(last_name);
+        admin.setPhone(phone);
+        admin.setEmail(email);
+        admin.setUser_admin(user);
+        admin.setPassword(password);
+        admin.save();
     	return redirect("/master/registrarAdmin");
     }
 
