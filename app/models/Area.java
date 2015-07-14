@@ -13,7 +13,7 @@ import play.data.validation.*;
 public class Area extends Model{
 
 	@Id
-	Long id;
+	protected Long id;
 
 	String name;
 

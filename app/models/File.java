@@ -13,7 +13,7 @@ import play.data.validation.*;
 public class File extends Model{
 
 	@Id
-	Long id;
+	protected Long id;
 	String name;
 
 	@OneToMany(mappedBy = "file" ,cascade=CascadeType.ALL)

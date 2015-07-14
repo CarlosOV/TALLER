@@ -13,7 +13,7 @@ import play.data.validation.*;
 public class FileAux extends Model{
 
 	@Id
-	Long id;
+	protected Long id;
 
 	@ManyToOne(cascade=CascadeType.ALL)
   	File file;
