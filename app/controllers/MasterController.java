@@ -108,7 +108,13 @@ public class MasterController extends Controller {
 
     public Result saveFormCourse(){
         Form<Course> formulario = Form.form(Course.class).bindFromRequest();
-        formulario.get().save();
+        long id = Integer.parseInt(formulario.field("idArea").value());
+        String nameCourse = formulario.field("name").value();
+        Course course = new Course();
+        Area area = AreaController.find.byId(id);
+        course.setName(nameCourse);
+        course.setArea(area);
+        course.save();
         return redirect("/master/registrarCourse");
     }
 
