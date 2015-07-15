@@ -36,7 +36,7 @@
                         <a href="#" class="color-white bold"><i class="fa fa-files-o color-white"></i> Entregables</a>
                     </li>
                     <li>
-                        <a href="#" class="color-white bold"><i class="fa fa-calendar-o color-white"></i> Consultas</a>
+                        <a href="@routes.AdminController.consultas" class="color-white bold"><i class="fa fa-calendar-o color-white"></i> Consultas</a>
                     </li>
                     <li>
                         <a href="#" class="color-white bold"><i class="fa fa-bar-chart color-white"></i> Estadísticas</a>
@@ -70,55 +70,7 @@
             </div>
         </nav>
     </header>
-    <section class="container">
-        <div class="row">
-            <aside class="col-xs-12 col-md-3">
-                <div class="panel-group a-none" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading style-icip">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="a-none">
-                                <h4 class="panel-title title-icip color-white">
-                                    <i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Mi información
-                                </h4>
-                            </a>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <table class="table table-hover">
-                                    <tr>
-                                        <td>
-                                            <i class="fa fa-user-plus"></i><a href="@routes.AdminController.editarInfo" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Editar Datos</a> 
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading style-icip">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="a-none">
-                                <h4 class="panel-title title-icip color-white">
-                                    <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Mi Cuenta
-                                </h4>
-                            </a>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <table class="table table-hover">
-                                    <tr>
-                                        <td>
-                                            <i class="fa fa-user-plus"></i><a href="@routes.AdminController.editarCuenta" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Cambiar Contraseña</a> 
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            @content
-        </div>
-    </section>
+    @content
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>

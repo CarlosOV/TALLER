@@ -11,6 +11,7 @@ GET		/tutor/indexCuenta						controllers.TutorController.indexCuenta()
 GET		/tutor/editarDatos						controllers.TutorController.editarInfo()
 GET		/tutor/editarCuenta						controllers.TutorController.editarCuenta()
 
+GET		/administrator/adminConsulta			controllers.AdminController.consultas()
 GET		/administrator/adminMenu				controllers.AdminController.menu()
 GET		/administrador/indexCuenta				controllers.AdminController.indexCuenta()
 GET		/administrador/editarDatos				controllers.AdminController.editarInfo()

@@ -12,6 +12,10 @@ import models.*;
 
 public class AdminController extends Controller {
 
+    public Result consultas(){
+        return ok(adminConsulta.render());
+    }
+
     public Result menu(){
     	return ok(adminMenu.render());
     }
