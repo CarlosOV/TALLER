@@ -9,7 +9,7 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "file")
+@Table(name = "files")
 public class File extends Model{
 
 	@Id

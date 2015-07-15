@@ -9,7 +9,7 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "file_aux")
+@Table(name = "file_auxs")
 public class FileAux extends Model{
 
 	@Id

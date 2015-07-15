@@ -27,17 +27,17 @@ create table course (
   constraint pk_course primary key (id))
 ;
 
-create table file (
+create table files (
   id                        bigint not null,
   name                      varchar(255),
-  constraint pk_file primary key (id))
+  constraint pk_files primary key (id))
 ;
 
-create table file_aux (
+create table file_auxs (
   id                        bigint not null,
   file_id                   bigint,
   report_aux_id             bigint,
-  constraint pk_file_aux primary key (id))
+  constraint pk_file_auxs primary key (id))
 ;
 
 create table level (
@@ -111,9 +111,9 @@ create sequence area_seq;
 
 create sequence course_seq;
 
-create sequence file_seq;
+create sequence files_seq;
 
-create sequence file_aux_seq;
+create sequence file_auxs_seq;
 
 create sequence level_seq;
 
@@ -127,10 +127,10 @@ create sequence tutor_seq;
 
 alter table course add constraint fk_course_area_1 foreign key (area_id) references area (id) on delete restrict on update restrict;
 create index ix_course_area_1 on course (area_id);
-alter table file_aux add constraint fk_file_aux_file_2 foreign key (file_id) references file (id) on delete restrict on update restrict;
-create index ix_file_aux_file_2 on file_aux (file_id);
-alter table file_aux add constraint fk_file_aux_report_aux_3 foreign key (report_aux_id) references report_auxs (id) on delete restrict on update restrict;
-create index ix_file_aux_report_aux_3 on file_aux (report_aux_id);
+alter table file_auxs add constraint fk_file_auxs_file_2 foreign key (file_id) references files (id) on delete restrict on update restrict;
+create index ix_file_auxs_file_2 on file_auxs (file_id);
+alter table file_auxs add constraint fk_file_auxs_report_aux_3 foreign key (report_aux_id) references report_auxs (id) on delete restrict on update restrict;
+create index ix_file_auxs_report_aux_3 on file_auxs (report_aux_id);
 alter table reports add constraint fk_reports_theme_4 foreign key (theme_id) references themes (id) on delete restrict on update restrict;
 create index ix_reports_theme_4 on reports (theme_id);
 alter table reports add constraint fk_reports_tutor_5 foreign key (tutor_id) references tutor (id) on delete restrict on update restrict;
@@ -174,9 +174,9 @@ drop table if exists course_tutor;
 
 drop table if exists course_level;
 
-drop table if exists file;
+drop table if exists files;
 
-drop table if exists file_aux;
+drop table if exists file_auxs;
 
 drop table if exists level;
 
@@ -200,9 +200,9 @@ drop sequence if exists area_seq;
 
 drop sequence if exists course_seq;
 
-drop sequence if exists file_seq;
+drop sequence if exists files_seq;
 
-drop sequence if exists file_aux_seq;
+drop sequence if exists file_auxs_seq;
 
 drop sequence if exists level_seq;
 
