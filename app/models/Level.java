@@ -51,8 +51,8 @@ public class Level extends Model{
 		return this.themes;
 	}
 
-	public void setCourses(List<Course> courses){
-		this.courses = courses;
+	public void setCourse(Course course){
+		courses.add(course);
 	}
 
 	public List<Course> getCourses(){

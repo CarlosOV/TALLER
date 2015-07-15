@@ -192,7 +192,16 @@ public class MasterController extends Controller {
 
     public Result saveFormTheme(){
         Form<Theme> formulario = Form.form(Theme.class).bindFromRequest();
-        formulario.get().save();
+        long idCourse = Integer.parseInt(formulario.field("idArea").value());
+        long idLevel = Integer.parseInt(formulario.field("idAdmin").value());
+        Course course = CourseController.find.byId(idCourse);
+        Level level = LevelController.find.byId(idLevel);
+        Theme theme = new Theme();
+        theme.setLevel(level);
+        theme.setName(formulario.field("name").value());
+        theme.save();
+        level.setCourse(course);
+        level.save();
         return redirect("/master/registrarTheme");
     }
     public Result editTheme(){
