@@ -206,7 +206,7 @@ public class MasterController extends Controller {
     }
 
     public Result saveFormTheme(){
-        Form<Theme> formulario = Form.form(Theme.class).bindFromRequest();
+        /*Form<Theme> formulario = Form.form(Theme.class).bindFromRequest();
         long idCourse = Integer.parseInt(formulario.field("idArea").value());
         long idLevel = Integer.parseInt(formulario.field("idAdmin").value());
         Course course = CourseController.find.byId(idCourse);
@@ -220,7 +220,7 @@ public class MasterController extends Controller {
             course.setLevel(level);
             course.save();  
         }
-        
+        */
         return redirect("/master/registrarTheme");
     }
     public Result editTheme(){
@@ -230,6 +230,7 @@ public class MasterController extends Controller {
     }
 
     public List<Tema> findTemas(){
+        /*
         List<Tema> temas = new ArrayList<Tema>();
         List<Course> courses = CourseController.find.all();
         for (Course course : courses) {
@@ -248,6 +249,7 @@ public class MasterController extends Controller {
                 
             }
         }
-        return temas;
+        return temas;*/
+        return null;
     }
 }

@@ -19,7 +19,7 @@ public class Tutor extends Model{
 	@ManyToOne
   	Administrador admin;
 
-  	@ManyToMany(cascade=CascadeType.ALL)
+  	@OneToMany(mappedBy = "tutor")
   	List<Course> courses;
 
   	@OneToMany(mappedBy = "tutor" ,cascade=CascadeType.ALL)

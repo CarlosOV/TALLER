@@ -9,7 +9,7 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "files")
+@Table(name = "file")
 public class File extends Model{
 
 	@Id
@@ -17,6 +17,6 @@ public class File extends Model{
 	String name;
 
 	@OneToMany(mappedBy = "file" ,cascade=CascadeType.ALL)
-	List<FileAux> file_aux;
+	List<File_Aux> file_aux;
 
 }

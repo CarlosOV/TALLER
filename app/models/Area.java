@@ -9,7 +9,7 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "areas")
+@Table(name = "area")
 public class Area extends Model{
 
 	@Id
@@ -17,7 +17,7 @@ public class Area extends Model{
 
 	String name;
 
-	@OneToMany(mappedBy = "area" ,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "area")
 	List<Course> courses;
 
 	public Area(){

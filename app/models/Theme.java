@@ -9,22 +9,19 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "themes")
+@Table(name = "theme")
 public class Theme extends Model{
 
 	@Id
 	protected Long id;
 
-  	@ManyToOne(cascade=CascadeType.ALL)
-  	Level level;
-
-  	@OneToOne(mappedBy = "theme" ,cascade=CascadeType.ALL)
-	List<Report> reports = new ArrayList<Report>();;
-
-	@ManyToOne(cascade=CascadeType.ALL)
-  	Course course;
-
 	String name;
+
+	@OneToMany(mappedBy = "theme", cascade=CascadeType.ALL)
+	List<Course_Aux> courses_aux;
+
+	@OneToOne(mappedBy = "theme", cascade=CascadeType.ALL)
+	Report report;
 
 	public Theme(){
 
@@ -38,30 +35,6 @@ public class Theme extends Model{
 		return this.id;
 	}
 
-	public void setLevel(Level level){
-		this.level = level;
-	}
-
-	public Level getLevel(){
-		return this.level;
-	}
-
-	public void setCourse(Course course){
-		this.course = course;
-	}
-
-	public Course getCourse(){
-		return this.course;
-	}
-
-	public void setReports(List<Report> reports){
-		this.reports = reports;
-	}
-
-	public List<Report> getReports(){
-		return reports;
-	}
-
 	public void setName(String name){
 		this.name = name;
 	}
@@ -69,4 +42,21 @@ public class Theme extends Model{
 	public String getName(){
 		return this.name;
 	}
+
+	public void setCourses_aux(List<Course_Aux> courses_aux){
+		this.courses_aux = courses_aux;
+	}
+
+	public List<Course_Aux> getCourses_aux(){
+		return this.courses_aux;
+	}
+
+	public void setReport(Report report){
+		this.report = report;
+	}
+
+	public Report getReport(){
+		return this.report;
+	}
+	
 }

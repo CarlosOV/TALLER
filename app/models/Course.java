@@ -17,17 +17,14 @@ public class Course extends Model{
 
 	String name;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
   	Area area;
 
-  	@ManyToMany(cascade=CascadeType.ALL)
-  	List<Tutor> tutors;
+  	@ManyToOne
+  	Tutor tutor;
 
-  	@ManyToMany(cascade=CascadeType.ALL)
-  	List<Level> levels;
-
-  	@OneToMany(mappedBy = "course" ,cascade=CascadeType.ALL)
-	List<Theme> themes;
+  	@OneToMany(mappedBy = "course", cascade=CascadeType.ALL)
+  	List<Course_Aux> courses_aux;
 
 	public Course(){
 	}
@@ -56,27 +53,19 @@ public class Course extends Model{
 		return this.area;
 	}
 
-	public void setTutors(List<Tutor> tutor){
-		this.tutors = tutors;
+	public void setTutors(Tutor tutor){
+		this.tutor = tutor;
 	}
 
-	public List<Tutor> getTutor(){
-		return this.tutors;
+	public Tutor getTutor(){
+		return this.tutor;
 	}
 
-	public void setLevel(Level level){
-		this.levels.add(level);
+	public void setTheme(List<Course_Aux> courses_aux){
+		this.courses_aux = courses_aux;
 	}
 
-	public List<Level> getLevels(){
-		return this.levels;
-	}
-
-	public void setTheme(Theme theme){
-		this.themes.add(theme);
-	}
-
-	public List<Theme> getTheme(){
-		return this.themes;
+	public List<Course_Aux> getTheme(){
+		return this.courses_aux;
 	}
 }

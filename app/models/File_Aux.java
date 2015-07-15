@@ -9,8 +9,8 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "file_auxs")
-public class FileAux extends Model{
+@Table(name = "file_aux")
+public class File_Aux extends Model{
 
 	@Id
 	protected Long id;
@@ -19,7 +19,7 @@ public class FileAux extends Model{
   	File file;
 
   	@ManyToOne(cascade=CascadeType.ALL)
-  	ReportAux report_aux;
+  	Report_Aux report_aux;
 
 	
 

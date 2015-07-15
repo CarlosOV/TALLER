@@ -9,7 +9,7 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "levels")
+@Table(name = "level")
 public class Level extends Model{
 
 	@Id
@@ -17,11 +17,8 @@ public class Level extends Model{
 
 	String name;
 
-	@OneToMany(mappedBy = "level" ,cascade=CascadeType.ALL)
-	List<Theme> themes;
-
-	@ManyToMany(cascade=CascadeType.ALL)
-	List<Course> courses;
+	@OneToMany(mappedBy = "level" , cascade = CascadeType.ALL)
+	List<Level_Aux> levels_aux;
 
 	public Level(){
 
@@ -43,19 +40,11 @@ public class Level extends Model{
 		return this.name;
 	}
 
-	public void setThemes(Theme theme){
-		this.themes.add(theme);
+	public void setLevels_aux(List<Level_Aux> levels_aux){
+		this.levels_aux = levels_aux;
 	}
 
-	public List<Theme> getThemes(){
-		return this.themes;
-	}
-
-	public void setCourse(Course course){
-		courses.add(course);
-	}
-
-	public List<Course> getCourses(){
-		return this.courses;
+	public List<Level_Aux> getLevels_Aux(){
+		return levels_aux;
 	}
 }

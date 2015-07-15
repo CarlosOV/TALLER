@@ -9,20 +9,20 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "reports")
+@Table(name = "report")
 public class Report extends Model{
 
 	@Id
 	protected Long id;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@OneToOne
   	Theme theme;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
   	Tutor tutor;
 
   	@OneToMany(mappedBy = "report" ,cascade=CascadeType.ALL)
-	List<ReportAux> report_auxs;
+	List<Report_Aux> reports_aux;
 
 	@Formats.DateTime(pattern="dd/MM/yyyy")
   	Date date_registry = new Date();
