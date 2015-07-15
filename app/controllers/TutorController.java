@@ -13,9 +13,7 @@ import controllers.*;
 public class TutorController extends Controller {
 
     public Result consultas(){
-        long id = Integer.parseInt(session("id"));
-        List<Course> courses = findCourses(id);
-    	return ok(tutorConsulta.render(courses));
+    	return ok(tutorConsulta.render());
     }
 
     public Result menu(){

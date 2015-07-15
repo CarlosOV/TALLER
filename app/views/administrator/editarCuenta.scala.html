@@ -1,35 +1,83 @@
 @import template._
 @temp_Admin("Editar Cuenta"){
-<article id="myContainer" class="col-xs-12 col-md-9">
-    <form>
+<section class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-6 col-xs-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading style-icip">
-                        <h3 class="panel-title title-icip">Cambiar Contraseña</h3>
+            <aside class="col-xs-12 col-md-3">
+                <div class="panel-group a-none" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading style-icip">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="a-none">
+                                <h4 class="panel-title title-icip color-white">
+                                    <i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;&nbsp;Mi información
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-user-plus"></i><a href="@routes.AdminController.editarInfo" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Editar Datos</a> 
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <label>Password Antigua:</label>
-                                <input type="text" class="form-control" placeholder="Contraseña Antigua" required>
+                    <div class="panel panel-default">
+                        <div class="panel-heading style-icip">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="a-none">
+                                <h4 class="panel-title title-icip color-white">
+                                    <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Mi Cuenta
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-user-plus"></i><a href="@routes.AdminController.editarCuenta" class="a-none">&nbsp;&nbsp;&nbsp;&nbsp;Cambiar Contraseña</a> 
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                            <div class="form-group col-xs-12">
-                                <label>Password Actual:</label>
-                                <input type="text" class="form-control" placeholder="Contraseña Actual" required>
-                            </div>
-                            <div class="form-group col-xs-12">
-                                <label>Confirmar Password:</label>
-                                <input type="text" class="form-control" placeholder="Confirmar Contraseña" required>
-                            </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="float-center">
-                    <button type="submit" class="btn button-icip button-icip-lg">Guardar cambios</button>
-                </div>
-            </div>
+            </aside>
+            <article id="myContainer" class="col-xs-12 col-md-9">
+                <form>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-xs-offset-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading style-icip">
+                                    <h3 class="panel-title title-icip">Cambiar Contraseña</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="form-group col-xs-12">
+                                            <label>Password Antigua:</label>
+                                            <input type="text" class="form-control" placeholder="Contraseña Antigua" required>
+                                        </div>
+                                        <div class="form-group col-xs-12">
+                                            <label>Password Actual:</label>
+                                            <input type="text" class="form-control" placeholder="Contraseña Actual" required>
+                                        </div>
+                                        <div class="form-group col-xs-12">
+                                            <label>Confirmar Password:</label>
+                                            <input type="text" class="form-control" placeholder="Confirmar Contraseña" required>
+                                        </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="float-center">
+                                <button type="submit" class="btn button-icip button-icip-lg">Guardar cambios</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </article>
         </div>
-    </form>
-</article>
+    </section>
 }
