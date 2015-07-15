@@ -24,6 +24,7 @@
                         <tbody>
                         @for(theme <- themes){
                             <tr class="text-center">
+                            <td>@theme.getId()</td>
                                 <td><button id="btnDialog" class="btn style-icip">Editar</button></td>
                                 <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
                             </tr> }                               

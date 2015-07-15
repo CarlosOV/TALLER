@@ -46,27 +46,27 @@ create table level (
   constraint pk_level primary key (id))
 ;
 
-create table report (
+create table reports (
   id                        bigint not null,
   theme_id                  bigint,
   tutor_id                  bigint,
   date_registry             timestamp,
   date_submit               timestamp,
   var_submit                boolean,
-  constraint pk_report primary key (id))
+  constraint pk_reports primary key (id))
 ;
 
-create table report_aux (
+create table report_auxs (
   id                        bigint not null,
   report_id                 bigint,
-  constraint pk_report_aux primary key (id))
+  constraint pk_report_auxs primary key (id))
 ;
 
-create table theme (
+create table themes (
   id                        bigint not null,
   level_id                  bigint,
   name                      varchar(255),
-  constraint pk_theme primary key (id))
+  constraint pk_themes primary key (id))
 ;
 
 create table tutor (
@@ -117,11 +117,11 @@ create sequence file_aux_seq;
 
 create sequence level_seq;
 
-create sequence report_seq;
+create sequence reports_seq;
 
-create sequence report_aux_seq;
+create sequence report_auxs_seq;
 
-create sequence theme_seq;
+create sequence themes_seq;
 
 create sequence tutor_seq;
 
@@ -129,16 +129,16 @@ alter table course add constraint fk_course_area_1 foreign key (area_id) referen
 create index ix_course_area_1 on course (area_id);
 alter table file_aux add constraint fk_file_aux_file_2 foreign key (file_id) references file (id) on delete restrict on update restrict;
 create index ix_file_aux_file_2 on file_aux (file_id);
-alter table file_aux add constraint fk_file_aux_report_aux_3 foreign key (report_aux_id) references report_aux (id) on delete restrict on update restrict;
+alter table file_aux add constraint fk_file_aux_report_aux_3 foreign key (report_aux_id) references report_auxs (id) on delete restrict on update restrict;
 create index ix_file_aux_report_aux_3 on file_aux (report_aux_id);
-alter table report add constraint fk_report_theme_4 foreign key (theme_id) references theme (id) on delete restrict on update restrict;
-create index ix_report_theme_4 on report (theme_id);
-alter table report add constraint fk_report_tutor_5 foreign key (tutor_id) references tutor (id) on delete restrict on update restrict;
-create index ix_report_tutor_5 on report (tutor_id);
-alter table report_aux add constraint fk_report_aux_report_6 foreign key (report_id) references report (id) on delete restrict on update restrict;
-create index ix_report_aux_report_6 on report_aux (report_id);
-alter table theme add constraint fk_theme_level_7 foreign key (level_id) references level (id) on delete restrict on update restrict;
-create index ix_theme_level_7 on theme (level_id);
+alter table reports add constraint fk_reports_theme_4 foreign key (theme_id) references themes (id) on delete restrict on update restrict;
+create index ix_reports_theme_4 on reports (theme_id);
+alter table reports add constraint fk_reports_tutor_5 foreign key (tutor_id) references tutor (id) on delete restrict on update restrict;
+create index ix_reports_tutor_5 on reports (tutor_id);
+alter table report_auxs add constraint fk_report_auxs_report_6 foreign key (report_id) references reports (id) on delete restrict on update restrict;
+create index ix_report_auxs_report_6 on report_auxs (report_id);
+alter table themes add constraint fk_themes_level_7 foreign key (level_id) references level (id) on delete restrict on update restrict;
+create index ix_themes_level_7 on themes (level_id);
 alter table tutor add constraint fk_tutor_admin_8 foreign key (admin_id) references administrador (id) on delete restrict on update restrict;
 create index ix_tutor_admin_8 on tutor (admin_id);
 
@@ -182,11 +182,11 @@ drop table if exists level;
 
 drop table if exists level_course;
 
-drop table if exists report;
+drop table if exists reports;
 
-drop table if exists report_aux;
+drop table if exists report_auxs;
 
-drop table if exists theme;
+drop table if exists themes;
 
 drop table if exists tutor;
 
@@ -206,11 +206,11 @@ drop sequence if exists file_aux_seq;
 
 drop sequence if exists level_seq;
 
-drop sequence if exists report_seq;
+drop sequence if exists reports_seq;
 
-drop sequence if exists report_aux_seq;
+drop sequence if exists report_auxs_seq;
 
-drop sequence if exists theme_seq;
+drop sequence if exists themes_seq;
 
 drop sequence if exists tutor_seq;
 

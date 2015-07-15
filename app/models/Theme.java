@@ -9,7 +9,7 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "theme")
+@Table(name = "themes")
 public class Theme extends Model{
 
 	@Id
