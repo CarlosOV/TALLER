@@ -110,6 +110,9 @@ body{
 .margin-top-xs{
     margin-top: 30px;
 }
+.modal-backdrop{
+    z-index: 1!important;
+}
 .nav a:hover{
     background-color: #C5EEFD !important;
     color: black !important;
