@@ -130,6 +130,14 @@ public class MasterController extends Controller {
         return redirect("/master/actualizarLevel");
     }
 
+    public Result updateLevel(Long id){
+        DynamicForm requestData = Form.form().bindFromRequest();
+        Level level = LevelController.find.byId(id);
+        String name = requestData.get("nameLevel");
+        level.setName(name);
+        level.save();
+        return redirect("/master/actualizarLevel");
+    }
 
     //FORMULARIOS PARA AREAS
     public Result createFormArea(){

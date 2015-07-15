@@ -24,7 +24,11 @@
                             @for(level <- levels){
                                 <tr class="text-center">
                                     <td>@level.getName()</td>
-                                    <td><button type="button" data-toggle="modal" data-target="#editModal" class="btn style-icip">Editar</button></td>
+                                    <td><button type="button" data-toggle="modal" data-target="#editModal" class="editar btn style-icip">Editar
+                                    <input style="display:none;" type="text" value="@level.getId()">  
+        <input type="text" style="display:none;" value="@level.getName()"></button></td>
+
+
                                     @form(routes.MasterController.deleteLevel(level.getId())){
                                         <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
                                     }
@@ -33,9 +37,73 @@
                         }                               
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div id="editModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar Nivel</h4>
+      </div>
+      <div class="modal-body">
+        <input style="display:none;" type="text" id="idLevel">  
+        <input type="text" id="nameLevel">
+        <button id="updateLevel" type="button" class="btn btn-success">Actualizar</button> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<style>
+    .modal-backdrop{
+        z-index: 1!important;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script> 
+    $(document).ready(function() {
+        $(".editar").on("click",function(){
+            $(this).find(":input").each(function(i, item){
+                if(i==0){
+                    $("#idLevel").val(item.value);
+                }else{
+                    $("#nameLevel").val(item.value);
+                }
+            })
+
+        });
+
+    var updateLevel = {
+        update_item: function() {         
+            $("#updateLevel").on("click", function() {
+                
+                if($("#nameLevel").val()!="" && $("#idLevel").val()!="") {
+                    $.ajax({
+                        type: "PUT",
+                        url: "/master/actualizarLevel/"+$("#idLevel").val(),
+                        data: {
+                            nameLevel: $("#nameLevel").val()
+                        }
+                    })
+                    .done(function(data) {
+                        window.location.href = ("/master/actualizarLevel");        
+                    });
+                }                       
+            });
+        }
+    };
+    updateLevel.update_item()
+});
+</script>
+
 }
