@@ -21,6 +21,9 @@ public class Theme extends Model{
   	@OneToOne(mappedBy = "theme" ,cascade=CascadeType.ALL)
 	List<Report> reports = new ArrayList<Report>();;
 
+	@ManyToOne(cascade=CascadeType.ALL)
+  	Course course;
+
 	String name;
 
 	public Theme(){
@@ -41,6 +44,14 @@ public class Theme extends Model{
 
 	public Level getLevel(){
 		return this.level;
+	}
+
+	public void setCourse(Course course){
+		this.course = course;
+	}
+
+	public Course getCourse(){
+		return this.course;
 	}
 
 	public void setReports(List<Report> reports){

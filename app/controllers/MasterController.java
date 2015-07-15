@@ -198,6 +198,7 @@ public class MasterController extends Controller {
         Level level = LevelController.find.byId(idLevel);
         Theme theme = new Theme();
         theme.setLevel(level);
+        theme.setCourse(course);
         theme.setName(formulario.field("name").value());
         theme.save();
         if(course.getLevels().indexOf(level)<0){
@@ -221,11 +222,13 @@ public class MasterController extends Controller {
             for(Level level: levels){
             List<Theme> themes = level.getThemes();
                 for(Theme theme: themes){
-                    Tema tema = new Tema();
+                    if(theme.getCourse().getId()==course.getId()){
+                      Tema tema = new Tema();
                     tema.setIdTheme(theme.getId());
                     tema.setIdCurso(course.getId());
                     tema.setIdNivel(level.getId());
-                    temas.add(tema);
+                    temas.add(tema);  
+                    }  
                 }
                 
             }

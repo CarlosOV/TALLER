@@ -9,7 +9,7 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "course")
+@Table(name = "courses")
 public class Course extends Model{
 
 	@Id
@@ -25,6 +25,9 @@ public class Course extends Model{
 
   	@ManyToMany(cascade=CascadeType.ALL)
   	List<Level> levels;
+
+  	@OneToMany(mappedBy = "course" ,cascade=CascadeType.ALL)
+	List<Theme> themes;
 
 	public Course(){
 	}
@@ -67,5 +70,13 @@ public class Course extends Model{
 
 	public List<Level> getLevels(){
 		return this.levels;
+	}
+
+	public void setTheme(Theme theme){
+		this.themes.add(theme);
+	}
+
+	public List<Theme> getTheme(){
+		return this.themes;
 	}
 }

@@ -9,7 +9,7 @@ import play.data.validation.*;
 
 
 @Entity
-@Table(name = "area")
+@Table(name = "areas")
 public class Area extends Model{
 
 	@Id
