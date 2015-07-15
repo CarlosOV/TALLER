@@ -19,7 +19,7 @@ public class Theme extends Model{
   	Level level;
 
   	@OneToOne(mappedBy = "theme" ,cascade=CascadeType.ALL)
-	List<Report> reports;
+	List<Report> reports = new ArrayList<Report>();;
 
 	String name;
 

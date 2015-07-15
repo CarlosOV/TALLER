@@ -61,8 +61,8 @@ public class Course extends Model{
 		return this.tutors;
 	}
 
-	public void setLevels(List<Level> levels){
-		this.levels = levels;
+	public void setLevel(Level level){
+		this.levels.add(level);
 	}
 
 	public List<Level> getLevels(){

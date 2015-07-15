@@ -200,12 +200,36 @@ public class MasterController extends Controller {
         theme.setLevel(level);
         theme.setName(formulario.field("name").value());
         theme.save();
-        level.setCourse(course);
-        level.save();
+        if(course.getLevels().indexOf(level)<0){
+            course.setLevel(level);
+            course.save();  
+        }
+        
         return redirect("/master/registrarTheme");
     }
     public Result editTheme(){
-        List<Theme> themes = ThemeController.find.all();
-        return ok(actualizarTheme.render(themes));
+
+        List<Tema> temas = findTemas();
+        return ok(actualizarTheme.render(temas));
+    }
+
+    public List<Tema> findTemas(){
+        List<Tema> temas = new ArrayList<Tema>();
+        List<Course> courses = CourseController.find.all();
+        for (Course course : courses) {
+            List<Level> levels = course.getLevels();
+            for(Level level: levels){
+            List<Theme> themes = level.getThemes();
+                for(Theme theme: themes){
+                    Tema tema = new Tema();
+                    tema.setIdTheme(theme.getId());
+                    tema.setIdCurso(course.getId());
+                    tema.setIdNivel(level.getId());
+                    temas.add(tema);
+                }
+                
+            }
+        }
+        return temas;
     }
 }

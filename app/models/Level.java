@@ -43,8 +43,8 @@ public class Level extends Model{
 		return this.name;
 	}
 
-	public void setThemes(List<Theme> themes){
-		this.themes = themes;
+	public void setThemes(Theme theme){
+		this.themes.add(theme);
 	}
 
 	public List<Theme> getThemes(){
