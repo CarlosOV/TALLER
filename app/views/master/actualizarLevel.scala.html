@@ -27,8 +27,6 @@
                                     <td><button type="button" data-toggle="modal" data-target="#editModal" class="editar btn style-icip">Editar
                                     <input style="display:none;" type="text" value="@level.getId()">  
         <input type="text" style="display:none;" value="@level.getName()"></button></td>
-
-
                                     @form(routes.MasterController.deleteLevel(level.getId())){
                                         <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
                                     }
@@ -44,31 +42,29 @@
     </div>
 </div>
 <div id="editModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Editar Nivel</h4>
-      </div>
-      <div class="modal-body">
-        <input style="display:none;" type="text" id="idLevel">  
-        <input type="text" id="nameLevel">
-        <button id="updateLevel" type="button" class="btn btn-success">Actualizar</button> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header style-icip">
+                <h4 class="modal-title">Editar Nivel</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div class="form-group">
+                            <label>Nombre:</label>
+                            <input style="display:none;" type="text" id="idLevel">  
+                            <input type="text" id="nameLevel" class="form-control" placeholder="Ingrese nivel">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="updateLevel" type="button" class="btn style-icip">Actualizar</button>
+                <button type="button" class="btn style-icip" data-dismiss="modal">Cancelar</button>
+              </div>
+        </div>
     </div>
-
-  </div>
 </div>
-<style>
-    .modal-backdrop{
-        z-index: 1!important;
-    }
-</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script> 
     $(document).ready(function() {
