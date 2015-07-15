@@ -125,11 +125,6 @@ public class MasterController extends Controller {
         return ok(actualizarLevel.render(levels));
     }
 
-    public Result deleteLevel(Long id){
-        LevelController.find.ref(id).delete();
-        return redirect("/master/actualizarLevel");
-    }
-
     public Result updateLevel(Long id){
         DynamicForm requestData = Form.form().bindFromRequest();
         Level level = LevelController.find.byId(id);
@@ -138,6 +133,12 @@ public class MasterController extends Controller {
         level.save();
         return redirect("/master/actualizarLevel");
     }
+
+    public Result deleteLevel(Long id){
+        LevelController.find.ref(id).delete();
+        return redirect("/master/actualizarLevel");
+    }
+
 
     //FORMULARIOS PARA AREAS
     public Result createFormArea(){
@@ -155,6 +156,20 @@ public class MasterController extends Controller {
     public Result editArea(){
         List<Area> areas = AreaController.find.all();
         return ok(actualizarArea.render(areas));
+    }
+
+    public Result updateArea(Long id){
+        DynamicForm requestData = Form.form().bindFromRequest();
+        Area area = AreaController.find.byId(id);
+        String name = requestData.get("nameArea");
+        area.setName(name);
+        area.save();
+        return redirect("/master/actualizarArea");
+    }
+
+    public Result deleteArea(Long id){
+        AreaController.find.ref(id).delete();
+        return redirect("/master/actualizarArea");
     }
 
 

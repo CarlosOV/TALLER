@@ -20,12 +20,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @for(area <- areas){
-                            <tr class="text-center">
-                                <td>@area.getName()</td>
-                                <td><button id="btnDialog" class="btn style-icip">Editar</button></td>
-                                <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
-                            </tr> }                               
+                        @if(areas != null){
+                            @for(area <- areas){
+                                <tr class="text-center">
+                                    <td>@area.getName()</td>
+                                    <td><button type="button" data-toggle="modal" data-target="#editModal" class="editar btn style-icip">Editar
+                                        <input style="display:none;" type="text" value="@area.getId()">  
+            <input type="text" style="display:none;" value="@area.getName()"></button></td>
+                                    @form(routes.MasterController.deleteArea(area.getId())){
+                                        <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
+                                    }
+                                </tr> 
+                            } 
+                        }                              
                         </tbody>
                     </table>
                 </div>
@@ -33,5 +40,64 @@
         </div>
     </div>
 </div>
+<div id="editModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header style-icip">
+                <h4 class="modal-title">Editar Área</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label>Descripción:</label>
+                            <input style="display:none;" type="text" id="idArea">  
+                            <input type="text" id="nameArea" class="form-control" placeholder="Ingrese área">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="updateArea" type="button" class="btn style-icip">Actualizar</button>
+                <button type="button" class="btn style-icip" data-dismiss="modal">Cancelar</button>
+              </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script> 
+    $(document).ready(function() {
+        $(".editar").on("click",function(){
+            $(this).find(":input").each(function(i, item){
+                if(i==0){
+                    $("#idArea").val(item.value);
+                }else{
+                    $("#nameArea").val(item.value);
+                }
+            })
 
+        });
+
+    var updateArea = {
+        update_item: function() {         
+            $("#updateArea").on("click", function() {
+                
+                if($("#nameArea").val()!="" && $("#idArea").val()!="") {
+                    $.ajax({
+                        type: "PUT",
+                        url: "/master/actualizarArea/"+$("#idArea").val(),
+                        data: {
+                            nameArea: $("#nameArea").val()
+                        }
+                    })
+                    .done(function(data) {
+                        window.location.href = ("/master/actualizarArea");        
+                    });
+                }                       
+            });
+        }
+    };
+    updateArea.update_item()
+});
+</script>
 }
