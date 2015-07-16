@@ -59,7 +59,6 @@ public class TutorController extends Controller {
 
     }
 
-
     public static List<Course> findCourses(long id){
         return CourseController.find.where().eq("tutors.id",id).findList();
     }

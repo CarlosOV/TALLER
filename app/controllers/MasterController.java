@@ -115,8 +115,11 @@ public class MasterController extends Controller {
 
     public Result saveFormLevel(){
         Form<Level> formulario = Form.form(Level.class).bindFromRequest();
+        Level_Aux level_aux = new Level_Aux();
 
         formulario.get().save();
+        level_aux.setLevel(formulario.get());
+        level_aux.save();
         return redirect("/master/registrarLevel");
     }
 
@@ -128,9 +131,13 @@ public class MasterController extends Controller {
     public Result updateLevel(Long id){
         DynamicForm requestData = Form.form().bindFromRequest();
         Level level = LevelController.find.byId(id);
+        Level_Aux level_aux = Level_Aux_Controller.find.where().eq("level.id", id).findUnique();
         String name = requestData.get("nameLevel");
+        
         level.setName(name);
-        level.save();
+        level.update();
+        level_aux.setLevel(level);
+        level_aux.update();
         return redirect("/master/actualizarLevel");
     }
 
@@ -187,15 +194,20 @@ public class MasterController extends Controller {
         String nameCourse = formulario.field("name").value();
         Course course = new Course();
         Area area = AreaController.find.byId(id);
+        
         course.setName(nameCourse);
         course.setArea(area);
+        Course_Aux course_aux = new Course_Aux();
+        course_aux.setCourse(course);
         course.save();
+        course_aux.save();
+        
         return redirect("/master/registrarCourse");
     }
 
     public Result editCourse(){
-        List<Course> courses = CourseController.find.all();
-        return ok(actualizarCourse.render(courses));
+        List<Variable> variable = CourseController.courseInfo();
+        return ok(actualizarCourse.render(variable));
     }
 
 
