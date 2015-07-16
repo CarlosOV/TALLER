@@ -17,8 +17,8 @@ public class Theme extends Model{
 
 	String name;
 
-	@OneToMany(mappedBy = "theme", cascade=CascadeType.ALL)
-	List<Course_Aux> courses_aux;
+	@OneToOne(mappedBy = "theme", cascade=CascadeType.ALL)
+	Course_Aux course_aux;
 
 	@OneToOne(mappedBy = "theme", cascade=CascadeType.ALL)
 	Report report;
@@ -43,12 +43,12 @@ public class Theme extends Model{
 		return this.name;
 	}
 
-	public void setCourses_aux(List<Course_Aux> courses_aux){
-		this.courses_aux = courses_aux;
+	public void setCourse_aux(Course_Aux course_aux){
+		this.course_aux = course_aux;
 	}
 
-	public List<Course_Aux> getCourses_aux(){
-		return this.courses_aux;
+	public Course_Aux getCourse_aux(){
+		return this.course_aux;
 	}
 
 	public void setReport(Report report){

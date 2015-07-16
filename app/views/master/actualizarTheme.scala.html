@@ -1,4 +1,4 @@
-@(temas : List[Tema])
+@(temas : List[Variable])
 @import template._
 @import helper._
 @temp_Master("Actualizar Temas"){
@@ -15,8 +15,6 @@
                         <thead>
                             <tr class="text-center">
                                 <th class="text-center">Tema</th>
-                                <th class="text-center">Curso</th>
-                                <th class="text-center">Nivel</th>
                                 <th class="text-center"></th>
                                 <th class="text-center"></th>
                             </tr>
@@ -24,12 +22,11 @@
                         <tbody>
                         @for(tema <- temas){
                             <tr class="text-center">
-                            <td>@ThemeController.find.byId(tema.getIdTheme()).getName()</td>
-                            <td>@CourseController.find.byId(tema.getIdCurso()).getName()</td>
-                            <td>@LevelController.find.byId(tema.getIdNivel()).getName()</td>
+                                <td>@tema.getTheme()</td>
                                 <td><button id="btnDialog" class="btn style-icip">Editar</button></td>
                                 <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
-                            </tr> }                               
+                            </tr> 
+                        }                               
                         </tbody>
                     </table>
                 </div>

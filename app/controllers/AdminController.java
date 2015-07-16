@@ -1,6 +1,9 @@
 package controllers;
 
 import java.util.*;
+import java.text.ParseException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import com.avaje.ebean.Model;
 
@@ -11,6 +14,40 @@ import views.html.administrator.*;
 import models.*;
 
 public class AdminController extends Controller {
+
+    public Result reportes(){
+        Form<Reporte> reporte = Form.form(Reporte.class);
+        Date fecha = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.add(Calendar.DAY_OF_YEAR, 7);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return ok(adminReportes.render(reporte, formatter.format(calendar.getTime())));
+    }
+
+    public Result saveFormReport(){
+        Form<Reporte> reporte = Form.form(Reporte.class).bindFromRequest();
+        Report report = new Report();
+        Date date = null;
+
+        Tutor tutor = TutorController.find.byId(reporte.get().getIdTutor());
+        Theme theme = ThemeController.find.byId(reporte.get().getIdTema());
+        report.setTutor(tutor);
+        report.setTheme(theme);
+        report.setVar_state(false);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            date = formatter.parse(reporte.get().getFecha());
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        report.setDate_registry(date);
+        report.save();
+
+        return redirect(routes.AdminController.menu());
+    }
 
     public Result consultas(){
         return ok(adminConsulta.render());
@@ -43,11 +80,28 @@ public class AdminController extends Controller {
         return redirect(routes.AdminController.indexCuenta());
     }
 
+    public Result updateCount(){
+        Form<Password> pass = Form.form(Password.class).bindFromRequest();
+        long id = Integer.parseInt(session("id"));
+
+        Administrador admin = AdminController.find.byId(id);
+        if(pass.get().getOld_pass().equals(admin.getPassword())){
+            if(pass.get().getPass().equals(pass.get().getRe_pass())){
+                admin.setPassword(pass.get().getPass());
+                admin.update();
+            }
+        }
+        
+        return redirect(routes.AdminController.indexCuenta());
+    }
+
     public Result editarCuenta(){
-    	return ok(editarCuenta.render());
+        Form<Password> pass = Form.form(Password.class);
+    	return ok(editarCuenta.render(pass));
     }
 
     public Result indexCuenta(){
+
         return ok(indexCuenta.render());
     }
     
@@ -83,6 +137,15 @@ public class AdminController extends Controller {
 
         for(Administrador admin : AdminController.find.orderBy("last_name").findList()){
             map.put(admin.getId() + "", admin.last_name + " " + admin.name);
+        }
+        return map;
+    }
+
+    public static Map<String, String> showTutores(){
+        LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+
+        for(Tutor tutor : TutorController.find.where().eq("admin.id", session("id")).findList()){
+            map.put(tutor.getId() + "", tutor.getLast_name() + " " + tutor.getName());
         }
         return map;
     }

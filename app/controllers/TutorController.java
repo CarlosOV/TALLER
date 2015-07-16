@@ -6,6 +6,7 @@ import com.avaje.ebean.Model;
 
 import play.*;
 import play.mvc.*;
+import play.data.*;
 import views.html.tutor.*;
 import models.*;
 import controllers.*;
@@ -13,7 +14,8 @@ import controllers.*;
 public class TutorController extends Controller {
 
     public Result consultas(){
-    	return ok(tutorConsulta.render());
+        List<Report> report = ReportController.find.all();
+    	return ok(tutorConsulta.render(report));
     }
 
     public Result menu(){
@@ -21,11 +23,44 @@ public class TutorController extends Controller {
     }
 
     public Result editarInfo(){
-    	return ok(editarDatos.render());
+        long id = Integer.parseInt(session("id"));
+        Tutor tutor = TutorController.find.byId(id);
+        Form<Tutor> formulario = Form.form(Tutor.class);
+    	return ok(editarDatos.render(formulario, tutor));
+    }
+
+    public Result updateInfo(){
+        Form<Tutor> formulario = Form.form(Tutor.class).bindFromRequest();
+        long id = Integer.parseInt(session("id"));
+        Tutor tutor = TutorController.find.byId(id);
+
+        tutor.setName(formulario.get().getName());
+        tutor.setLast_name(formulario.get().getLast_name());
+        tutor.setEmail(formulario.get().getEmail());
+        tutor.setPhone(formulario.get().getPhone());
+        tutor.save();
+
+        return redirect(routes.TutorController.indexCuenta());
     }
 
     public Result editarCuenta(){
-    	return ok(editarCuenta.render());
+        Form<Password> pass = Form.form(Password.class);
+    	return ok(editarCuenta.render(pass));
+    }
+
+    public Result updateCount(){
+        Form<Password> pass = Form.form(Password.class).bindFromRequest();
+        long id = Integer.parseInt(session("id"));
+
+        Tutor tutor = TutorController.find.byId(id);
+        if(pass.get().getOld_pass().equals(tutor.getPassword())){
+            if(pass.get().getPass().equals(pass.get().getRe_pass())){
+                tutor.setPassword(pass.get().getPass());
+                tutor.update();
+            }
+        }
+        
+        return redirect(routes.TutorController.indexCuenta());
     }
 
     public Result indexCuenta(){

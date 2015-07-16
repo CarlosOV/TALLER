@@ -17,4 +17,8 @@ $(document).ready(function(){
             $('#btnLogin').attr('formaction', "/administrator/adminMenu");
         }
     }); 
+
+    $('·truco').click(function(){
+        $('#pintado').addClass('success');
+    });
 });

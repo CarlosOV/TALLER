@@ -1,3 +1,4 @@
+@(reportes : List[Report])
 @import template._
 @temp_Tutor("Consulta de Entregas"){
 
@@ -12,7 +13,6 @@
                     <table id="table-view" class="table table-striped">
                         <thead>
                             <tr class="text-center">
-                                <th class="text-center">Curso</th>
                                 <th class="text-center">Tema</th>
                                 <th class="text-center">Fecha Entrega</th>
                                 <th class="text-center">Estado</th>
@@ -20,13 +20,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
-                                <td>Java</td>
-                                <td>Polimorfismo</td>
-                                <td>10/12/2015</td>
-                                <td>Entregado</td>
-                                <td><button class="btn style-icip">Visualizar</button></td>
-                            </tr>                         
+                            @for(reporte <- reportes){
+                                <tr id="pintado" class="text-center warning">
+                                    <td>Archivos</td>
+                                    <td>23/07/2015</td>
+                                    <td>Pendiente</td>
+                                    <td><button type="button" data-toggle="modal" data-target="#editModal" class="editar btn style-icip">Visualizar</button></td>
+                                </tr> 
+                            }                        
                         </tbody>
                     </table>
                 </div>
@@ -34,5 +35,42 @@
         </div>
     </div>
 </div>
-
+<div id="editModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header style-icip">
+                <h4 class="modal-title">Editar Área</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <label>URL Youtube:</label>
+                        <br>
+                        <input type="text" id="nameArea" class="form-control" placeholder="Ingrese url">
+                    </div>
+                    <div class="form-group col-xs-12">
+                    <br>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label>URL Vimeo:</label>
+                        <br>
+                        <input type="text" id="nameArea" class="form-control" placeholder="Ingrese url">
+                    </div>
+                    <div class="form-group col-xs-12">
+                    <br>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label>URL CloudBerry:</label>
+                        <br>
+                        <input type="text" id="nameArea" class="form-control" placeholder="Ingrese url">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="updateArea" type="button" class="btn style-icip truco">Actualizar</button>
+                <button type="button" class="btn style-icip" data-dismiss="modal">Cancelar</button>
+              </div>
+        </div>
+    </div>
+</div>
 }

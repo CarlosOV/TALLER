@@ -18,7 +18,7 @@ public class Course_Aux extends Model{
 	@ManyToOne
 	Course course;
 
-	@ManyToOne
+	@OneToOne
 	Theme theme;
 
 	@OneToOne

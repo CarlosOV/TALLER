@@ -9,15 +9,19 @@ GET		/tutor/tutorConsulta					controllers.TutorController.consultas()
 GET		/tutor/tutorMenu						controllers.TutorController.menu()
 GET		/tutor/indexCuenta						controllers.TutorController.indexCuenta()
 GET		/tutor/editarDatos						controllers.TutorController.editarInfo()
+POST	/tutor/editarDatos						controllers.TutorController.updateInfo()
 GET		/tutor/editarCuenta						controllers.TutorController.editarCuenta()
+POST	/tutor/editarCuenta						controllers.TutorController.updateCount()
 
+GET		/administrator/adminReportes			controllers.AdminController.reportes()
+POST	/administrator/adminReportes			controllers.AdminController.saveFormReport()
 GET		/administrator/adminConsulta			controllers.AdminController.consultas()
 GET		/administrator/adminMenu				controllers.AdminController.menu()
 GET		/administrador/indexCuenta				controllers.AdminController.indexCuenta()
 GET		/administrador/editarDatos				controllers.AdminController.editarInfo()
 POST	/administrador/editarDatos				controllers.AdminController.updateInfo()
-
 GET		/administrador/editarCuenta				controllers.AdminController.editarCuenta()
+POST	/administrador/editarCuenta				controllers.AdminController.updateCount()
 
 #OPERACIONES SOBRE ADMINISTRADORES
 GET		/master/registrarAdmin					controllers.MasterController.createFormAdmin()

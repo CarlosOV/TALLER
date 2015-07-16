@@ -33,6 +33,7 @@ create table course_aux (
   course_id                 bigint,
   theme_id                  bigint,
   level_aux_id              bigint,
+  constraint uq_course_aux_theme_id unique (theme_id),
   constraint uq_course_aux_level_aux_id unique (level_aux_id),
   constraint pk_course_aux primary key (id))
 ;
@@ -68,7 +69,7 @@ create table report (
   tutor_id                  bigint,
   date_registry             timestamp,
   date_submit               timestamp,
-  var_submit                boolean,
+  var_state                 boolean,
   constraint uq_report_theme_id unique (theme_id),
   constraint pk_report primary key (id))
 ;

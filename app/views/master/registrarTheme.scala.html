@@ -1,4 +1,4 @@
-@(formulario: Form[Theme])
+@(formulario: Form[Theme], variable: Form[Variable])
 @import template._
 @import helper._
 
@@ -14,10 +14,10 @@
 	                <div class="panel-body">
 	                    <div class="row">
 	                        <div class="form-group col-xs-12">
-	                            @select(formulario("idArea"), options(CourseController.showCourses()), '_label -> "Curso:",'class -> "form-control")
+	                            @select(variable("idCourse"), options(CourseController.showCourses()), '_label -> "Curso:",'class -> "form-control")
 	                        </div>
 	                        <div class="form-group col-xs-12">
-	                            @select(formulario("idAdmin"), options(LevelController.showLevels()), '_label -> "Nivel:",'class -> "form-control")
+	                            @select(variable("idLevel"), options(LevelController.showLevels()), '_label -> "Nivel:",'class -> "form-control")
 	                        </div>
 	                        <div class="form-group col-xs-12">
 	                        	@textarea(formulario("name"), args = 'rows -> 2, '_label -> "Tema:",'placeholder -> "Ingrese nombre", 'class -> "form-control")

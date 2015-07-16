@@ -13,8 +13,12 @@ public class Variable{
 	//CAMPOS PARA LA TABLA DE CURSOS
 	private String name;
 	private String area;
-	private List<Level> levels;
 	private String tutor;
+
+	//CAMPOS PARA LA TABLA DE TEMAS
+	private String theme;
+	private String course;
+	private String level;
 
 	public Variable(){
 		this.idAdmin = 0;
@@ -77,19 +81,35 @@ public class Variable{
 		return this.area;
 	}
 
-	public void setLevels(Level level){
-		this.levels.add(level);
-	}
-
-	public List<Level> getLevels(){
-		return this.levels;
-	}
-
 	public void setTutor(String tutor){
 		this.tutor = tutor;
 	}
 
 	public String getTutor(){
 		return this.tutor;
+	}
+
+	public void setTheme(String theme){
+		this.theme = theme;
+	}
+
+	public String getTheme(){
+		return this.theme;
+	}
+
+	public void setCourse(String course){
+		this.course = course;
+	}
+
+	public String getCourse(){
+		return this.course;
+	}
+
+	public void setLevel(String level){
+		this.level = level;
+	}
+
+	public String getLevel(){
+		return this.level;
 	}
 }

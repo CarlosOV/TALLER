@@ -1,4 +1,7 @@
+@(pass:Form[Password])
 @import template._
+@import helper._
+
 @temp_Tutor("Editar Cuenta"){
 <section class="container">
     <div class="row">
@@ -47,7 +50,7 @@
             </div>
         </aside>
         <article id="myContainer" class="col-xs-12 col-md-9">
-            <form>
+            @form(routes.TutorController.updateCount()){
                 <div class="row">
                     <div class="col-xs-12 col-md-6 col-xs-offset-3">
                         <div class="panel panel-default">
@@ -57,18 +60,21 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="form-group col-xs-12">
-                                        <label>Password Antigua:</label>
-                                        <input type="text" class="form-control" placeholder="Contraseña Antigua" required>
-                                    </div>
-                                    <div class="form-group col-xs-12">
-                                        <label>Password Actual:</label>
-                                        <input type="text" class="form-control" placeholder="Contraseña Actual" required>
-                                    </div>
-                                    <div class="form-group col-xs-12">
-                                        <label>Confirmar Password:</label>
-                                        <input type="text" class="form-control" placeholder="Confirmar Contraseña" required>
-                                    </div>
-                                    </div>
+                                            @helper.input(pass("old_pass"), '_showConstraints -> false,'_label -> "Password Antiguo:"){ (id, name, value, args) =>
+            <input type="text" placeholder="Password anterior" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+            }
+                                        </div>
+                                        <div class="form-group col-xs-12">
+                                            @helper.input(pass("pass"), '_showConstraints -> false,'_label -> "Nuevo Password:"){ (id, name, value, args) =>
+            <input type="text" placeholder="Ingrese password" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+            }
+                                        </div>
+                                        <div class="form-group col-xs-12">
+                                            @helper.input(pass("re_pass"), '_showConstraints -> false,'_label -> "Repita Password:"){ (id, name, value, args) =>
+            <input type="text" placeholder="Repita password" class="form-control" name="@name" id="@id" @toHtmlArgs(args)>
+            }
+                                        </div>
+                                        </div>
                             </div>
                         </div>
                         <div class="float-center">
@@ -76,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            }
         </article>
     </div>
 </section>

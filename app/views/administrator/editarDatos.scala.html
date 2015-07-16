@@ -78,9 +78,8 @@
             @helper.input(formulario("phone"), '_showConstraints -> false,'_label -> "Teléfono:"){ (id, name, value, args) =>
             <input type="text" placeholder="Nuevo teléfono" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@admin.getPhone()">
             }
-                                    </div>
-                                
-                            </div>
+                                        </div>
+                                </div>
                             <div class="float-center">
                                 <button type="submit" class="btn button-icip button-icip-lg">Guardar cambios</button>
                             </div>

@@ -1,4 +1,7 @@
+@(formulario: Form[Tutor], tutor : Tutor)
 @import template._
+@import helper._
+
 @temp_Tutor("Editar Información"){
 <section class="container">
     <div class="row">
@@ -47,7 +50,7 @@
             </div>
         </aside>
         <article id="myContainer" class="col-xs-12 col-md-9">
-            <form>
+            @form(routes.TutorController.updateInfo()){
                 <div class="row">
                     <div class="col-xs-12 col-md-6 col-md-offset-3">
                         <div class="panel panel-default">
@@ -57,24 +60,24 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="form-group col-xs-12">
-                                        <label>Nombres:</label>
-                                        <input type="text" class="form-control" placeholder="Nuevos nombres" required>
+        @helper.input(formulario("name"), '_showConstraints -> false,'_label -> "Nombres:"){ (id, name, value, args) =>
+        <input type="text" placeholder="Nuevos nombres" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@tutor.getName()">
+        }
                                     </div>
                                     <div class="form-group col-xs-12">
-                                        <label>Apellidos:</label>
-                                        <input type="text" class="form-control" placeholder="Nuevos apellidos" required>
+        @helper.input(formulario("last_name"), '_showConstraints -> false,'_label -> "Apellidos:"){ (id, name, value, args) =>
+        <input type="text" placeholder="Nuevos apellidos" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@tutor.getLast_name()">
+        }
+        </div>
+                                    <div class="form-group col-xs-12">
+        @helper.input(formulario("email"), '_showConstraints -> false,'_label -> "E-mail:"){ (id, name, value, args) =>
+        <input type="email" placeholder="Nuevo correo" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@tutor.getEmail()" >
+        }
                                     </div>
                                     <div class="form-group col-xs-12">
-                                        <label>E-mail:</label>
-                                        <input type="text" class="form-control" placeholder="Nuevo correo" required>
-                                    </div>
-                                    <div class="form-group col-xs-12">
-                                        <label>Teléfono:</label>
-                                        <input type="text" class="form-control" placeholder="Nuevo teléfono" required>
-                                    </div>
-                                    <div class="form-group col-xs-12">
-                                        <label>Domicilio:</label>
-                                        <textarea class="form-control" rows="2" placeholder="Nuevo domicilio" required></textarea>
+        @helper.input(formulario("phone"), '_showConstraints -> false,'_label -> "Teléfono:"){ (id, name, value, args) =>
+        <input type="text" placeholder="Nuevo teléfono" class="form-control" name="@name" id="@id" @toHtmlArgs(args) value="@tutor.getPhone()">
+        }
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            }
         </article>
     </div>
 </section>

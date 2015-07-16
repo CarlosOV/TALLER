@@ -128,13 +128,10 @@ public class MasterController extends Controller {
     public Result updateLevel(Long id){
         DynamicForm requestData = Form.form().bindFromRequest();
         Level level = LevelController.find.byId(id);
-        Level_Aux level_aux = Level_Aux_Controller.find.where().eq("level.id", id).findUnique();
         String name = requestData.get("nameLevel");
         
         level.setName(name);
         level.update();
-        level_aux.setLevel(level);
-        level_aux.update();
         return redirect("/master/actualizarLevel");
     }
 
@@ -232,54 +229,36 @@ public class MasterController extends Controller {
     //FORMULARIOS PARA TEMAS
     public Result createFormTheme(){
         Form<Theme> formulario = Form.form(Theme.class);
-        return ok(registrarTheme.render(formulario));
+        Form<Variable> variable = Form.form(Variable.class);
+
+        return ok(registrarTheme.render(formulario, variable));
     }
 
     public Result saveFormTheme(){
-        /*Form<Theme> formulario = Form.form(Theme.class).bindFromRequest();
-        long idCourse = Integer.parseInt(formulario.field("idArea").value());
-        long idLevel = Integer.parseInt(formulario.field("idAdmin").value());
-        Course course = CourseController.find.byId(idCourse);
-        Level level = LevelController.find.byId(idLevel);
-        Theme theme = new Theme();
-        theme.setLevel(level);
-        theme.setCourse(course);
-        theme.setName(formulario.field("name").value());
-        theme.save();
-        if(course.getLevels().indexOf(level)<0){
-            course.setLevel(level);
-            course.save();  
-        }
-        */
+        Form<Theme> formulario = Form.form(Theme.class).bindFromRequest();
+        Form<Variable> variable = Form.form(Variable.class).bindFromRequest();
+
+        //Course_Aux course_aux = Course_Aux_Controller.find.where().eq("course.id", variable.get().getIdCourse()).eq("level_aux.id", Level_Aux_Controller.find.where().eq("level.id", variable.get().getIdLevel()).findUnique()).findUnique();
+        formulario.get().save();
         return redirect("/master/registrarTheme");
     }
     public Result editTheme(){
 
-        List<Tema> temas = findTemas();
-        return ok(actualizarTheme.render(temas));
+        List<Variable> variable = findTemas();
+        return ok(actualizarTheme.render(variable));
     }
 
-    public List<Tema> findTemas(){
-        /*
-        List<Tema> temas = new ArrayList<Tema>();
-        List<Course> courses = CourseController.find.all();
-        for (Course course : courses) {
-            List<Level> levels = course.getLevels();
-            for(Level level: levels){
-            List<Theme> themes = level.getThemes();
-                for(Theme theme: themes){
-                    if(theme.getCourse().getId()==course.getId()){
-                      Tema tema = new Tema();
-                    tema.setIdTheme(theme.getId());
-                    tema.setIdCurso(course.getId());
-                    tema.setIdNivel(level.getId());
-                    temas.add(tema);  
-                    }  
-                }
-                
-            }
+    public List<Variable> findTemas(){
+        List<Theme> themes = ThemeController.find.all();
+        ArrayList<Variable> variable = new ArrayList<Variable>();
+
+        for(Theme theme : themes){
+            Variable var = new Variable();
+            var.setTheme(theme.getName());
+            //Course_Aux courses_aux = Course_Aux_Controller.find.where().eq("theme.id", theme.getId()).findUnique();
+            //var.setCourse(courses_aux.getCourse().getName());
+            variable.add(var);
         }
-        return temas;*/
-        return null;
+        return variable;
     }
 }
