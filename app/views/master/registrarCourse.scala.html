@@ -18,6 +18,9 @@
                                 @select(variable("idArea"), options(AreaController.showAreas()), '_label -> "Áreas:",'class -> "form-control")
                             </div>
                             <div class="form-group col-xs-12">
+                                @select(variable("idTutor"), options(TutorController.showTutores()), '_label -> "Tutor:",'class -> "form-control")
+                            </div>
+                            <div class="form-group col-xs-12">
                                 @textarea(formulario("name"), args = 'rows -> 2, '_label -> "Nombre:",'placeholder -> "Ingrese nombre", 'class -> "form-control")
                             </div>
                         </div>

@@ -59,6 +59,15 @@ public class TutorController extends Controller {
 
     }
 
+    public static Map<String, String> showTutores(){
+        LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+
+        for(Tutor tutor : TutorController.find.orderBy("last_name").findList()){
+            map.put(tutor.getId() + "", tutor.getLast_name() + " " + tutor.getName());
+        }
+        return map;
+    }
+
     public static List<Course> findCourses(long id){
         return CourseController.find.where().eq("tutors.id",id).findList();
     }

@@ -36,7 +36,7 @@ GET		/master/registrarLevel					controllers.MasterController.createFormLevel()
 POST	/master/registrarLevel					controllers.MasterController.saveFormLevel()
 GET		/master/actualizarLevel					controllers.MasterController.editLevel()
 POST	/master/actualizarLevel					controllers.MasterController.deleteLevel(id:Long)
-PUT     /master/actualizarLevel/:id            controllers.MasterController.updateLevel(id:Long)
+PUT     /master/actualizarLevel/:id             controllers.MasterController.updateLevel(id:Long)
 
 #OPERACIONES SOBRE AREA
 GET		/master/registrarArea					controllers.MasterController.createFormArea()
@@ -49,6 +49,8 @@ PUT     /master/actualizarArea/:id            	controllers.MasterController.upda
 GET		/master/registrarCourse					controllers.MasterController.createFormCourse()
 POST	/master/registrarCourse					controllers.MasterController.saveFormCourse()
 GET		/master/actualizarCourse				controllers.MasterController.editCourse()
+GET		/master/vincularCourse					controllers.MasterController.unionCourse()
+POST	/master/vincularCourse					controllers.MasterController.unionSave()
 
 #OPERACIONES SOBRE TEMAS
 GET		/master/registrarTheme					controllers.MasterController.createFormTheme()

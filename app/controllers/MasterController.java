@@ -115,11 +115,8 @@ public class MasterController extends Controller {
 
     public Result saveFormLevel(){
         Form<Level> formulario = Form.form(Level.class).bindFromRequest();
-        Level_Aux level_aux = new Level_Aux();
 
         formulario.get().save();
-        level_aux.setLevel(formulario.get());
-        level_aux.save();
         return redirect("/master/registrarLevel");
     }
 
@@ -190,6 +187,8 @@ public class MasterController extends Controller {
 
     public Result saveFormCourse(){
         Form<Course> formulario = Form.form(Course.class).bindFromRequest();
+        Form<Variable> variable = Form.form(Variable.class).bindFromRequest();
+        
         long id = Integer.parseInt(formulario.field("idArea").value());
         String nameCourse = formulario.field("name").value();
         Course course = new Course();
@@ -197,18 +196,37 @@ public class MasterController extends Controller {
         
         course.setName(nameCourse);
         course.setArea(area);
-        Course_Aux course_aux = new Course_Aux();
-        course_aux.setCourse(course);
+        course.setTutor(TutorController.find.where().eq("id", variable.get().getIdTutor()).findUnique());
         course.save();
-        course_aux.save();
         
         return redirect("/master/registrarCourse");
+    }
+
+    public Result unionCourse(){
+        Form<Variable> variable = Form.form(Variable.class);
+
+        return ok(vincularCourse.render(variable));
+    }
+
+    public Result unionSave(){
+        Form<Variable> variable = Form.form(Variable.class).bindFromRequest();
+        Level_Aux level_aux = new Level_Aux();
+        Course_Aux course_aux = new Course_Aux();
+        
+        level_aux.setLevel(LevelController.find.where().eq("id", variable.get().getIdLevel()).findUnique());
+        course_aux.setCourse(CourseController.find.where().eq("id", variable.get().getIdCourse()).findUnique());
+
+        course_aux.setLevel_aux(level_aux);
+        level_aux.save();
+        course_aux.save();
+        return redirect("/master/vincularCourse");
     }
 
     public Result editCourse(){
         List<Variable> variable = CourseController.courseInfo();
         return ok(actualizarCourse.render(variable));
     }
+
 
 
     //FORMULARIOS PARA TEMAS

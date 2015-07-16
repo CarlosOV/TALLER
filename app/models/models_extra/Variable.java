@@ -6,6 +6,9 @@ public class Variable{
 
 	private int idAdmin;
 	private int idArea;
+	private int idTutor;
+	private int idCourse;
+	private int idLevel;
 
 	//CAMPOS PARA LA TABLA DE CURSOS
 	private String name;
@@ -36,6 +39,30 @@ public class Variable{
 
 	public void setName(String name){
 		this.name = name;
+	}
+
+	public void setIdTutor(int idTutor){
+		this.idTutor = idTutor;
+	}
+
+	public int getIdTutor(){
+		return this.idTutor;
+	}
+
+	public void setIdCourse(int idCourse){
+		this.idCourse = idCourse;
+	}
+
+	public int getIdCourse(){
+		return this.idCourse;
+	}
+
+	public void setIdLevel(int idLevel){
+		this.idLevel = idLevel;
+	}
+
+	public int getIdLevel(){
+		return this.idLevel;
 	}
 
 	public String getName(){

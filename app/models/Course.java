@@ -53,7 +53,7 @@ public class Course extends Model{
 		return this.area;
 	}
 
-	public void setTutors(Tutor tutor){
+	public void setTutor(Tutor tutor){
 		this.tutor = tutor;
 	}
 
