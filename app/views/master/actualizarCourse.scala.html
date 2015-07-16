@@ -1,4 +1,4 @@
-@(courses : List[Course])
+@(courses : List[Variable])
 @import template._
 @import helper._
 @temp_Master("Actualizar Curso"){
@@ -26,9 +26,8 @@
                         @for(course <- courses){
                             <tr class="text-center">
                                 <td>@course.getName()</td>
-                                <td>@course.getArea().getName()</td>
-                                <td>@course.getName()</td>
-                                <td>@course.getArea().getName()</td>
+                                <td>@course.getArea()</td>
+                                <td>@course.getTutor()</td>
                                 <td><button id="btnDialog" class="btn style-icip">Editar</button></td>
                                 <td><button id="btnDialog" class="btn style-icip">Eliminar</button></td>
                             </tr> }                               
