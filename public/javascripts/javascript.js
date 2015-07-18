@@ -13,8 +13,10 @@ $(document).ready(function(){
         var index = $('#user_type').val();
         if(index == 1){
             $('#btnLogin').attr('formaction', "/tutor/tutorMenu");
+            alert("Es 1");
         }else{
             $('#btnLogin').attr('formaction', "/administrator/adminMenu");
+            alert("Es 2");
         }
     }); 
 
